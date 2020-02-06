@@ -20,5 +20,8 @@
   "devDependencies": {
     "gitbook": "^2.6.9",
     "gitbook-cli": "^2.3.2"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }

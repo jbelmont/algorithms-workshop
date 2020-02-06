@@ -112,3 +112,11 @@ typings/
 ### Go Patch ###
 /vendor/
 /Godeps/
+
+
+#Added by cargo
+#
+#already existing elements are commented out
+
+/target
+#**/*.rs.bk
