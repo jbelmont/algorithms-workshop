@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [Definition of a Data Structure](#definition-of-a-data-structure)
 
-## Bread Crumb Navigation
-_________________________
+## Definition of a Data Structure
 
-Previous | Next
-:------- | ---:
-← [Math for Algorithms](./math-for-algorithms.md) | [Sorting Algorithms](./sorting-algorithms.md) →
+content

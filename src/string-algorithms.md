@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [Types of String Algorithm](#types-of-string-algorithm)
 
-## Bread Crumb Navigation
-_________________________
+## Types of String Algorithm
 
-Previous | Next
-:------- | ---:
-← [Graph Algorithms](./graph-algorithms.md) | [Linear Programming](./linear-programming.md) →
+content

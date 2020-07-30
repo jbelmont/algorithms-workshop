@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [Searching Algorithm Definition](#searching-algorithm-definition)
 
-## Bread Crumb Navigation
-_________________________
+## Searching Algorithm Definition
 
-Previous | Next
-:------- | ---:
-← [Sorting Algorithms](./sorting-algorithms.md) | [Graph Algorithms](./graph-algorithms.md) →
+content

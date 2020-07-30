@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [What is Pseudocode](#what-is-pseudocode)
 
-## Bread Crumb Navigation
-_________________________
+## What is Pseudocode
 
-Previous | Next
-:------- | ---:
-← [README](../README.md) | [Big O Notation](./big-o-notation.md) →
+content

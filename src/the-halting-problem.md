@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [Halting Problem Defined](#halting-problem-defined)
 
-## Bread Crumb Navigation
-_________________________
+## Halting Problem Defined
 
-Previous | Next
-:------- | ---:
-← [Analysis of Algorithms](./analysis-of-algorithms.md) | [Math for Algorithms](./math-for-algorithms.md) →
+content

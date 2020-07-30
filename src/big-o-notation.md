@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [What is Big O Notation](#what-is-big-o-notation)
 
-## Bread Crumb Navigation
-_________________________
+## What is Big O Notation
 
-Previous | Next
-:------- | ---:
-← [Pseudocode](./pseudocode.md) | [Analysis of Algorithms](./analysis-of-algorithms.md) →
+Content

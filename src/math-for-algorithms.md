@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [Math for Algorithm](#math-for-algorithm)
 
-## Bread Crumb Navigation
-_________________________
+## Math for Algorithm
 
-Previous | Next
-:------- | ---:
-← [The Halting Problem](./the-halting-problem.md) | [Data Structures](./data-structures.md) →
+content

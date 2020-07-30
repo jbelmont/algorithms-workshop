@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [Definition of Dynamic Programming](#definition-of-dynamic-programming)
 
-## Bread Crumb Navigation
-_________________________
+## Definition of Dynamic Programming
 
-Previous | Next
-:------- | ---:
-← [Linear Programming](docs/linear-programming.md) | [README](../README.md) →
+content

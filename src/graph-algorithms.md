@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [Definition of Graph Algorithm](#definition-of-graph-algorithm)
 
-## Bread Crumb Navigation
-_________________________
+## Definition of Graph Algorithm
 
-Previous | Next
-:------- | ---:
-← [Searching Algorithms](./searching-algorithms.md) | [String Algorithms](./string-algorithms.md) →
+content

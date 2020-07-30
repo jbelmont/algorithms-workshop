@@ -2,11 +2,8 @@
 
 ## Sections:
 
-* [Bread Crumb Navigation](#bread-crumb-navigation)
+* [Linear Programming Definition](#linear-programming-definition)
 
-## Bread Crumb Navigation
-_________________________
+## Linear Programming Definition
 
-Previous | Next
-:------- | ---:
-← [String Algorithms](./string-algorithms.md) | [Dynamic Programming](./dynamic-programming.md) →
+content
