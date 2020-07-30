@@ -1,0 +1,5 @@
+[book]
+authors = ["Jean-Marcel Belmont"]
+multilingual = false
+src = "src"
+title = "Algorithms Workshop"
