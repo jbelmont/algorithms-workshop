@@ -9,4 +9,4 @@ _________________________
 
 Previous | Next
 :------- | ---:
-← [Big O Notation](./big-o-notation.md) | [Math for Algorithms](./math-for-algorithms.md) →
+← [Analysis of Algorithms](./analysis-of-algorithms.md) | [Math for Algorithms](./math-for-algorithms.md) →

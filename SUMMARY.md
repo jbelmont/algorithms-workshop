@@ -1,12 +1,9 @@
 # Algorithms Workshop
 
-* [Definition of Algorithm](#definition-of-algorithms)
-* [History of Algorithms](#history-of-algorithms)
-* [Types of Algorithms](#types-of-algorithms)
-* [Types of Data Structures](#types-of-data-structures)
-* [Analysis of Algorithms](#analysis-of-algorithms)
+* [README](./README.md)
 * [Pseudocode](docs/pseudocode.md)
 * [Big O Notation](docs/big-o-notation.md)
+* [Analysis of Algorithms](docs/analysis-of-algorithms.md)
 * [The Halting Problem](docs/the-halting-problem.md)
 * [Math for Algorithms](docs/math-for-algorithms.md)
 * [Data Structures](docs/data-structures.md)

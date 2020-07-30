@@ -1,4 +1,4 @@
-# Algorithms Workshop - Big O Notation
+# Algorithms Workshop - Analysis of Algorithms
 
 ## Sections:
 
@@ -9,4 +9,4 @@ _________________________
 
 Previous | Next
 :------- | ---:
-← [Pseudocode](./pseudocode.md) | [Analysis of Algorithms](./analysis-of-algorithms.md) →
+← [Big-O Notation](./big-o-notation.md) | [The Halting Problem](./the-halting-problem.md) →
