@@ -3,3 +3,6 @@ authors = ["Jean-Marcel Belmont"]
 multilingual = false
 src = "src"
 title = "Algorithms Workshop"
+
+[output.html]
+mathjax-support = true
