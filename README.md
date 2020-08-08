@@ -8,18 +8,6 @@ A workshop on Data Structures and Algorithms
     * [History of Algorithms](#history-of-algorithms)
     * [Types of Algorithms](#types-of-algorithms)
     * [Types of Data Structures](#types-of-data-structures)
-* [Pseudocode](./src/docs/pseudocode.md)
-* [Big O Notation](./src/docs/big-o-notation.md)
-* [Analysis of Algorithms](./src/docs/analysis-of-algorithms.md)
-* [The Halting Problem](./src/docs/the-halting-problem.md)
-* [Math for Algorithms](./src/docs/math-for-algorithms.md)
-* [Data Structures](./src/docs/data-structures.md)
-* [Sorting Algorithms](./src/docs/sorting-algorithms.md)
-* [Searching Algorithms](./src/docs/searching-algorithms.md)
-* [Graph Algorithms](./src/docs/graph-algorithms.md)
-* [String Algorithms](./src/docs/string-algorithms.md)
-* [Linear Programming](./src/docs/linear-programming.md)
-* [Dynamic Programming](./src/docs/dynamic-programming.md)
 
 ## Definition of Algorithms
 

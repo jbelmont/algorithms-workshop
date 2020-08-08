@@ -7,8 +7,8 @@ workshop-publish: workshop-build
 workshop-serve:
 	mdbook serve 
 
-open-book:
+workshop-book:
 	open $(shell printf 'https://marcelbelmont.com/%s' $(shell git config remote.origin.url | sed 's/git.*\///g;s/\.git//g'))
 
-open-github:
+workshop-github:
 	open 'https://github.com/jbelmont/algorithms-workshop'
