@@ -1,9 +1,5 @@
 # Algorithms Workshop - Pseudocode
 
-## Sections:
-
-* [Pseudocode Definition](#pseudocode-definition)
-
 ## Pseudocode Definition
 
 [Definition of Pseudocode (Wikipedia)](https://en.wikipedia.org/wiki/Pseudocode)

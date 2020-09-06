@@ -1,9 +1,13 @@
 # Algorithms Workshop - Analysis of Algorithms
 
-## Sections:
+## Cost Model
 
-* [Introduction](#introduction)
+content
 
-## Introduction
+## Mathematical Models
+
+content
+
+## Orders of Growth 
 
 content
