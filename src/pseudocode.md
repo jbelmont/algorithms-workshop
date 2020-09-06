@@ -36,4 +36,4 @@ algorithm partition(A, lo, hi) is
 
 This is using a mathematical style symbols:
 
-\\( \int x dx = \frac{x^2}{2} + C \\)
+\\( \int x dx\\; = \\;\frac{x^2}{2} + C \\)

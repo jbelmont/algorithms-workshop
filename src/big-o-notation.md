@@ -32,10 +32,10 @@ The differences between Big-O, Little-O, Theta, and Omega center around constrai
 
 #### Informal explanation for Big-O, Little-O, Theta and Omega
 
-Big-O: \\( T(n) is \mathcal{O}(f(n)) \\) -> f(n) describes upper bound for T(n) 
+Big-O: \\( T(n) \\; is \\; \mathcal{O}(f(n)) \\; \rightarrow \\) f(n) describes upper bound for T(n) 
 
-Little-O: \\( T(n) is o(f(n)) \\) -> f(n) describes the lower bound for T(n)
+Little-O: \\( T(n) \\; is \\; o(f(n)) \\; \rightarrow \\) f(n) describes the lower bound for T(n)
 
-Theta: \\( T(n) is \Theta(f(n)) \\) -> f(n) describes the exact bound for T(n)
+Theta: \\( T(n) \\; is \\; \Theta(f(n)) \\; \rightarrow \\) f(n) describes the exact bound for T(n)
 
-Omega: \\( T(n) is \Omega(f(n)) \\) -> f(n) is the upper bound for T(n) but T(n) can never be equal to f(n)
+Omega: \\( T(n) \\; is \\; \Omega(f(n)) \\; \rightarrow \\) f(n) is the upper bound for T(n) but T(n) can never be equal to f(n)
