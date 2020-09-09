@@ -122,3 +122,5 @@ typings/
 #**/*.rs.bk
 
 book
+
+.scripts
