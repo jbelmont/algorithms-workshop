@@ -26,3 +26,5 @@ A data structure is non-linear when an element is connected to many other elemen
 * Tables
 * Hash
 * Containers
+
+## Set Operations
