@@ -48,3 +48,19 @@ Add is a method that adds an element to the set
 #### Remove
 
 Remove is a method that removes an element from the set
+
+## Stack Operations
+
+[Stack (Wikipedia Definition)](https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29)
+
+> In computer science, a stack is an abstract data type that serves as a collection of elements, with two main principal operations:
+>     push, which adds an element to the collection, and
+>     pop, which removes the most recently added element that was not yet removed.
+
+#### Push 
+
+Add an element to the stack
+
+#### Pop 
+
+Remove most recent element from the stack and return it.
