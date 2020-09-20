@@ -28,3 +28,23 @@ A data structure is non-linear when an element is connected to many other elemen
 * Containers
 
 ## Set Operations
+
+[Set (Wikipedia Definition)](https://en.wikipedia.org/wiki/Set_%28abstract_data_type%29)
+
+> In computer science, a set is an abstract data type that can store unique values, without any particular order. It is a computer implementation of the mathematical concept of a finite set. Unlike most other collection types, rather than retrieving a specific element from a set, one typically tests a value for membership in a set.
+
+#### Union 
+
+The union of s and t returns all the elements of set s and set t
+
+#### Intersection
+
+The intersection of s and t return the all the elements that belong to A and to B
+
+#### Add
+
+Add is a method that adds an element to the set
+
+#### Remove
+
+Remove is a method that removes an element from the set
