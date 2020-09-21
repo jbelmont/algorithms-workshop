@@ -49,6 +49,14 @@ Add is a method that adds an element to the set
 
 Remove is a method that removes an element from the set
 
+#### Set Implementation
+
+[Set Implementation](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/set/set.go)
+
+#### Set Test Run
+
+[Set Tests](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/set/set_test.go)
+
 ## Stack Operations
 
 [Stack (Wikipedia Definition)](https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29)
@@ -64,3 +72,41 @@ Add an element to the stack
 #### Pop 
 
 Remove most recent element from the stack and return it.
+
+#### Stack Implementation
+
+[Stack Implementation](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/stack/stack.go)
+
+#### List Test Run
+
+[Stack Tests](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/stack/stack_test.go)
+
+## List Operations
+
+[List (Wikipedia Definition)](https://en.wikipedia.org/wiki/List_%28abstract_data_type%29)
+
+> In computer science, a list or sequence is an abstract data type that represents a countable number of ordered values, where the same value may occur more than once. An instance of a list is a computer representation of the mathematical concept of a tuple or finite sequence; the (potentially) infinite analog of a list is a stream. Lists are a basic example of containers, as they contain other values. If the same value occurs multiple times, each occurrence is considered a distinct item.
+
+#### Append
+
+Operation to append an element to a list
+
+#### Prepend
+
+Operation to prepend an element to a list
+
+#### Head
+
+Operation to find the first element of a list
+
+#### Empty
+
+Operation to determine whether or not a list is empty
+
+#### List Implementation
+
+[List Implementation](https://github.com/golang/go/blob/go1.15.2/src/container/list/list.go)
+
+#### List Test Run
+
+[List Tests](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/list/list_test.go)
