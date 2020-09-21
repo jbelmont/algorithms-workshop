@@ -114,3 +114,29 @@ Operation to determine whether or not a list is empty
 #### Singly List Test Run
 
 [List Tests](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/list/list_test.go)
+
+## Queue Operations
+
+[Queue (Wikipedia Definition)](https://en.wikipedia.org/wiki/Queue_%28abstract_data_type%29)
+
+> In computer science, a queue is a collection of entities that are maintained in a sequence and can be modified by the addition of entities at one end of the sequence and the removal of entities from the other end of the sequence. By convention, the end of the sequence at which elements are added is called the back, tail, or rear of the queue, and the end at which elements are removed is called the head or front of the queue, analogously to the words used when people line up to wait for goods or services.
+
+#### New
+
+Should return a new queue
+
+#### Enqueue 
+
+Operation should add item to the queue
+
+#### Dequeue
+
+Operation should remove and return first item added to the queue in FIFO order
+
+#### Queue Implementation
+
+[Queue Implementation](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/queue/queue.go)
+
+#### Queue Test Run
+
+[Queue Test Run](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/queue/queue_test.go)
