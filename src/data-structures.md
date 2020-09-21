@@ -27,6 +27,12 @@ A data structure is non-linear when an element is connected to many other elemen
 * Hash
 * Containers
 
+## Dynamic Data Structures
+
+* Dictionaries
+* TreeSets
+* Sequences
+
 ## Set Operations
 
 [Set (Wikipedia Definition)](https://en.wikipedia.org/wiki/Set_%28abstract_data_type%29)
@@ -140,3 +146,39 @@ Operation should remove and return first item added to the queue in FIFO order
 #### Queue Test Run
 
 [Queue Test Run](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/queue/queue_test.go)
+
+## Tree Operations
+
+[Tree (Wikipedia Definition)](https://en.wikipedia.org/wiki/Tree_%28data_structure%29)
+
+> In computer science, a tree is a widely used abstract data type that simulates a hierarchical tree structure, with a root value and subtrees of children with a parent node, represented as a set of linked nodes.
+
+> A tree data structure can be defined recursively as a collection of nodes (starting at a root node), where each node is a data structure consisting of a value, together with a list of references to nodes (the "children"), with the constraints that no reference is duplicated, and none points to the root.
+
+## Table Operations
+
+[Table (Wikipedia Definition)](https://en.wikipedia.org/wiki/Table_%28information%29)
+
+> A table is an arrangement of data in rows and columns, or possibly in a more complex structure. Tables are widely used in communication, research, and data analysis. Tables appear in print media, handwritten notes, computer software, architectural ornamentation, traffic signs, and many other places. The precise conventions and terminology for describing tables vary depending on the context. Further, tables differ significantly in variety, structure, flexibility, notation, representation and use. In books and technical articles, tables are typically presented apart from the main text in numbered and captioned floating blocks.
+
+A Table has rows and columns
+
+#### Table Implementation
+
+[Table Implementation](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/table/table.go)
+
+#### Table Test Run
+
+[Table Test Run](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/table/table_test.go)
+
+## Dictionary Operations
+
+A dictionary can be thought of as a set of key, value pairs. Dictionaries are often used in stoaring a set of data items.
+
+#### Dictionary Implementation
+
+[Dictionary Implementation](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/dictionary/dictionary.go)
+
+#### Dictionary Test Run
+
+[Dictionary Test Run](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/dictionary/dictionary_test.go)
