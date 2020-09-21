@@ -103,10 +103,14 @@ Operation to find the first element of a list
 
 Operation to determine whether or not a list is empty
 
-#### List Implementation
+#### Doubly LinkedList Implementation
 
-[List Implementation](https://github.com/golang/go/blob/go1.15.2/src/container/list/list.go)
+[Doubly LinkedList Implementation](https://github.com/golang/go/blob/go1.15.2/src/container/list/list.go)
 
-#### List Test Run
+#### Singly LinkedList Implementation
+
+[Singly LinkedList Implementation](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/linkedlist/linkedlist.go)
+
+#### Singly List Test Run
 
 [List Tests](https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/list/list_test.go)
