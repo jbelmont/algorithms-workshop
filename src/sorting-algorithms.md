@@ -61,6 +61,130 @@ func (s SortByYearsOfService) Less(i int, j int) bool {
 }
 ```
 
-#### Sorting Test Run
+#### Sorting Test
 
-[Sorting Test Run](https://github.com/jbelmont/algorithms-workshop/blob/master/sortingAlgorithms/sorting/sorting_test.go)
+[Sorting Test](https://github.com/jbelmont/algorithms-workshop/blob/master/sortingAlgorithms/sorting/sorting_test.go)
+
+## Bubble Sort Algorithm
+
+[Bubble Sort (Wikipedia Definition)](https://en.wikipedia.org/wiki/Bubble_sort)
+
+> Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list.
+
+#### Pseudocode Implementation
+
+[Pseudocode (Wikipedia)](https://en.wikipedia.org/wiki/Bubble_sort#Pseudocode_implementation)
+
+```
+procedure bubbleSort(A : list of sortable items)
+    n := length(A)
+    repeat
+        swapped := false
+        for i := 1 to n-1 inclusive do
+            /* if this pair is out of order */
+            if A[i-1] > A[i] then
+                /* swap them and remember something changed */
+                swap(A[i-1], A[i])
+                swapped := true
+            end if
+        end for
+    until not swapped
+end procedure
+```
+
+#### Bubble Sort Implementation
+
+```go
+package bubblesort
+
+func bubblesort(numbers []int, numOfElements int) int {
+	var swapTotal int
+
+	for i := 0; i < numOfElements; i++ {
+
+		var numberOfSwaps int
+
+		for j := 0; j < numOfElements-1; j++ {
+			if numbers[j] > numbers[j+1] {
+				// Use go way to swap numbers instead of longer version in other languages.
+				numbers[j], numbers[j+1] = numbers[j+1], numbers[j]
+				numberOfSwaps += 1
+			}
+		}
+
+		swapTotal += numberOfSwaps
+
+		// If no elements were swapped during a traversal, array is sorted
+		if numberOfSwaps == 0 {
+			break
+		}
+	}
+
+	return swapTotal
+}
+```
+
+#### Bubble Sort Test
+
+[Test](https://github.com/jbelmont/algorithms-workshop/blob/master/sortingAlgorithms/bubblesort/bubblesort_test.go)
+
+## Quick Sort Algorithm
+
+[Quick Sort (Wikipedia Definition)](https://en.wikipedia.org/wiki/Quicksort)
+
+> Quicksort (sometimes called partition-exchange sort) is an efficient sorting algorithm. Developed by British computer scientist Tony Hoare in 1959 and published in 1961, it is still a commonly used algorithm for sorting. When implemented well, it can be about two or three times faster than its main competitors, merge sort and heapsort.
+
+#### Lomuto Partitiion Scheme
+
+[Lomuto partition scheme](https://en.wikipedia.org/wiki/Quicksort#Lomuto_partition_scheme)
+
+> Lomuto partition scheme
+This scheme is attributed to Nico Lomuto and popularized by Bentley in his book Programming Pearls and Cormen et al. in their book Introduction to Algorithms. This scheme chooses a pivot that is typically the last element in the array. The algorithm maintains index i as it scans the array using another index j such that the elements at lo through i-1 (inclusive) are less than the pivot, and the elements at i through j (inclusive) are equal to or greater than the pivot. As this scheme is more compact and easy to understand, it is frequently used in introductory material, although it is less efficient than Hoare's original scheme e.g., when all elements are equal. This scheme degrades to O(n2) when the array is already in order.There have been various variants proposed to boost performance including various ways to select pivot, deal with equal elements, use other sorting algorithms such as Insertion sort for small arrays and so on. In pseudocode, a quicksort that sorts elements at lo through hi (inclusive) of an array A can be expressed as:[1
+
+###### Lomuto Pseudocode
+
+```
+algorithm quicksort(A, lo, hi) is
+    if lo < hi then
+        p := partition(A, lo, hi)
+        quicksort(A, lo, p - 1)
+        quicksort(A, p + 1, hi)
+
+algorithm partition(A, lo, hi) is
+    pivot := A[hi]
+    i := lo
+    for j := lo to hi do
+        if A[j] < pivot then
+            swap A[i] with A[j]
+            i := i + 1
+    swap A[i] with A[hi]
+    return i
+```
+
+#### QuickSort Lomuto Implementation
+
+```go
+package quicksort
+
+func partition(numbers []int, low, high int) int {
+	i := low
+	pivot := numbers[high]
+	for j := low; j < high; j++ {
+		if numbers[j] < pivot {
+			// Use go way to swap numbers instead of longer version in other languages.
+			numbers[i], numbers[j] = numbers[j], numbers[i]
+			i += 1
+		}
+	}
+	numbers[i], numbers[high] = numbers[high], numbers[i]
+	return i
+}
+
+func quicksort(numbers []int, low, high int) {
+	if low < high {
+		p := partition(numbers, low, high)
+		quicksort(numbers, low, p-1)
+		quicksort(numbers, p+1, high)
+	}
+}
+```
