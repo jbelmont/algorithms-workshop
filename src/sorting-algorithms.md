@@ -188,3 +188,38 @@ func quicksort(numbers []int, low, high int) {
 	}
 }
 ```
+
+#### QuickSort Lomuto Test Run
+
+[Test](https://github.com/jbelmont/algorithms-workshop/blob/master/sortingAlgorithms/quicksort/quicksort_test.go)
+
+## Selection Sort Algorithm
+
+[Selection Sort (Wikipedia Definition)](https://en.wikipedia.org/wiki/Selection_sort)
+
+> In computer science, selection sort is an in-place comparison sorting algorithm. It has an O(n2) time complexity, which makes it inefficient on large lists, and generally performs worse than the similar insertion sort. Selection sort is noted for its simplicity and has performance advantages over more complicated algorithms in certain situations, particularly where auxiliary memory is limited.
+
+#### Selection Sort Implementation
+
+```go
+package selectionsort
+
+func selectionSort(elements []int) {
+	count := len(elements) - 1
+	for i := 0; i < count; i++ {
+		minimum := i
+		var j int
+		for j = i + 1; j <= count; j++ {
+			if elements[j] < elements[minimum] {
+				minimum = j
+			}
+		}
+		// Swap out elements
+		elements[i], elements[minimum] = elements[minimum], elements[i]
+	}
+}
+```
+
+#### Selection Sort Test Run
+
+[Test](https://github.com/jbelmont/algorithms-workshop/blob/master/sortingAlgorithms/selectionsort/selectionsort_test.go)
