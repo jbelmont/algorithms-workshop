@@ -13,3 +13,4 @@
 * [String Algorithms](./string-algorithms.md)
 * [Linear Programming](./linear-programming.md)
 * [Dynamic Programming](./dynamic-programming.md)
+* [Numerical Analysis](./numerical_analysis.md)
