@@ -75,7 +75,7 @@ function binary_search_leftmost(A, n, T):
 
 #### Go standard library implementation
 
-The [sort.Search](https://pkg.go.dev/sort#Search) if you look at the source code for the *Search* method you will see that it implements the leftmost element procedure for the Binary Search Algorithm:
+The [sort.Search](https://pkg.go.dev/sort#Search) implements the leftmost element procedure for the Binary Search Algorithm:
 
 ```go
 // Search uses binary search to find and return the smallest index i

@@ -8,7 +8,7 @@ workshop-serve:
 	mdbook serve 
 
 workshop-book:
-	open -a Firefox\ Developer\ Edition $(shell printf 'https://marcelbelmont.com/%s' $(shell git config remote.origin.url | sed 's/git.*\///g;s/\.git//g'))
+	open $(shell printf 'https://marcelbelmont.com/%s' $(shell git config remote.origin.url | sed 's/git.*\///g;s/\.git//g'))
 
 workshop-github:
 	open 'https://github.com/jbelmont/algorithms-workshop'
