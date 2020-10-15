@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Searching Algorithms - Algorithms Workshop</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> README</a></li><li class="chapter-item expanded "><a href="pseudocode.html"><strong aria-hidden="true">2.</strong> Pseudocode</a></li><li class="chapter-item expanded "><a href="big-o-notation.html"><strong aria-hidden="true">3.</strong> Big O Notation</a></li><li class="chapter-item expanded "><a href="analysis-of-algorithms.html"><strong aria-hidden="true">4.</strong> Analysis of Algorithms</a></li><li class="chapter-item expanded "><a href="the-halting-problem.html"><strong aria-hidden="true">5.</strong> The Halting Problem</a></li><li class="chapter-item expanded "><a href="math-for-algorithms.html"><strong aria-hidden="true">6.</strong> Math for Algorithms</a></li><li class="chapter-item expanded "><a href="data-structures.html"><strong aria-hidden="true">7.</strong> Data Structures</a></li><li class="chapter-item expanded "><a href="sorting-algorithms.html"><strong aria-hidden="true">8.</strong> Sorting Algorithms</a></li><li class="chapter-item expanded "><a href="searching-algorithms.html" class="active"><strong aria-hidden="true">9.</strong> Searching Algorithms</a></li><li class="chapter-item expanded "><a href="graph-algorithms.html"><strong aria-hidden="true">10.</strong> Graph Algorithms</a></li><li class="chapter-item expanded "><a href="string-algorithms.html"><strong aria-hidden="true">11.</strong> String Algorithms</a></li><li class="chapter-item expanded "><a href="linear-programming.html"><strong aria-hidden="true">12.</strong> Linear Programming</a></li><li class="chapter-item expanded "><a href="dynamic-programming.html"><strong aria-hidden="true">13.</strong> Dynamic Programming</a></li><li class="chapter-item expanded "><a href="numerical_analysis.html"><strong aria-hidden="true">14.</strong> Numerical Analysis</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithms Workshop</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#algorithms-workshop---search-algorithms" id="algorithms-workshop---search-algorithms">Algorithms Workshop - Search Algorithms</a></h1>
+<h2><a class="header" href="#search-algorithm-definition" id="search-algorithm-definition">Search Algorithm Definition</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Search_algorithm">Search Algorithm (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a search algorithm is any algorithm which solves the search problem, namely, to retrieve information stored within some data structure, or calculated in the search space of a problem domain, either with discrete or continuous values. Specific applications of search algorithms include:</p>
+</blockquote>
+<blockquote>
+<p>Problems in combinatorial optimization, such as:</p>
+<ul>
+<li>The vehicle routing problem, a form of shortest path problem</li>
+<li>The knapsack problem: Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.</li>
+<li>The nurse scheduling problem</li>
+<li>Problems in constraint satisfaction, such as:</li>
+<li>The map coloring problem</li>
+<li>Filling in a sudoku or crossword puzzle</li>
+<li>In game theory and especially combinatorial game theory, choosing the best move to make next</li>
+<li>Finding a combination or password from the whole set of possibilities</li>
+<li>Factoring an integer (an important problem in cryptography)</li>
+<li>Optimizing an industrial process, such as a chemical reaction, by changing the parameters of the process</li>
+<li>Retrieving a record from a database</li>
+<li>Finding the maximum or minimum value in a list or array</li>
+<li>Checking to see if a given value is present in a set of values</li>
+</ul>
+</blockquote>
+<h2><a class="header" href="#linear-search-algorithm" id="linear-search-algorithm">Linear Search Algorithm</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Linear_search">Linear Search (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a linear search or sequential search is a method for finding an element within a list. It sequentially checks each element of the list until a match is found or the whole list has been searched.</p>
+</blockquote>
+<h4><a class="header" href="#linear-search-basic-algorithm" id="linear-search-basic-algorithm">Linear Search Basic Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Linear_search#Basic_algorithm">Basic Algorithm</a></p>
+<p><img src="./images/linear_search_algorithm.png" alt="Linear Search" /></p>
+<h4><a class="header" href="#linear-search-implementation" id="linear-search-implementation">Linear Search Implementation</a></h4>
+<pre><code class="language-go">package linearsearch
+
+func search(elements []int, searchElem int) int {
+	for index, element := range elements {
+		if element == searchElem {
+			return index
+		}
+	}
+	return -1
+}
+</code></pre>
+<h4><a class="header" href="#linear-search-test" id="linear-search-test">Linear Search Test</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/searchingAlgorithms/linearsearch/linearsearch_test.go">Linear Search Test</a></p>
+<h2><a class="header" href="#binary-search-algorithm" id="binary-search-algorithm">Binary Search Algorithm</a></h2>
+<blockquote>
+<p>In computer science, binary search, also known as half-interval search, logarithmic search,or binary chop, is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array. If they are not equal, the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found. If the search ends with the remaining half being empty, the target is not in the array.</p>
+</blockquote>
+<h4><a class="header" href="#binary-search-leftmost-element-pseudocode" id="binary-search-leftmost-element-pseudocode">Binary Search Leftmost Element Pseudocode</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure_for_finding_the_leftmost_element">Leftmost Element Pseudocode</a></p>
+<pre><code>function binary_search_leftmost(A, n, T):
+    L := 0
+    R := n
+    while L &lt; R:
+        m := floor((L + R) / 2)
+        if A[m] &lt; T:
+            L := m + 1
+        else:
+            R := m
+    return L
+</code></pre>
+<h4><a class="header" href="#go-standard-library-implementation" id="go-standard-library-implementation">Go standard library implementation</a></h4>
+<p>The <a href="https://pkg.go.dev/sort#Search">sort.Search</a> implements the leftmost element procedure for the Binary Search Algorithm:</p>
+<pre><code class="language-go">// Search uses binary search to find and return the smallest index i
+// in [0, n) at which f(i) is true, assuming that on the range [0, n),
+// f(i) == true implies f(i+1) == true. That is, Search requires that
+// f is false for some (possibly empty) prefix of the input range [0, n)
+// and then true for the (possibly empty) remainder; Search returns
+// the first true index. If there is no such index, Search returns n.
+// (Note that the &quot;not found&quot; return value is not -1 as in, for instance,
+// strings.Index.)
+// Search calls f(i) only for i in the range [0, n).
+//
+// A common use of Search is to find the index i for a value x in
+// a sorted, indexable data structure such as an array or slice.
+// In this case, the argument f, typically a closure, captures the value
+// to be searched for, and how the data structure is indexed and
+// ordered.
+//
+// For instance, given a slice data sorted in ascending order,
+// the call Search(len(data), func(i int) bool { return data[i] &gt;= 23 })
+// returns the smallest index i such that data[i] &gt;= 23. If the caller
+// wants to find whether 23 is in the slice, it must test data[i] == 23
+// separately.
+//
+// Searching data sorted in descending order would use the &lt;=
+// operator instead of the &gt;= operator.
+//
+// To complete the example above, the following code tries to find the value
+// x in an integer slice data sorted in ascending order:
+//
+//	x := 23
+//	i := sort.Search(len(data), func(i int) bool { return data[i] &gt;= x })
+//	if i &lt; len(data) &amp;&amp; data[i] == x {
+//		// x is present at data[i]
+//	} else {
+//		// x is not present in data,
+//		// but i is the index where it would be inserted.
+//	}
+//
+// As a more whimsical example, this program guesses your number:
+//
+//	func GuessingGame() {
+//		var s string
+//		fmt.Printf(&quot;Pick an integer from 0 to 100.\n&quot;)
+//		answer := sort.Search(100, func(i int) bool {
+//			fmt.Printf(&quot;Is your number &lt;= %d? &quot;, i)
+//			fmt.Scanf(&quot;%s&quot;, &amp;s)
+//			return s != &quot;&quot; &amp;&amp; s[0] == 'y'
+//		})
+//		fmt.Printf(&quot;Your number is %d.\n&quot;, answer)
+//	}
+//
+func Search(n int, f func(int) bool) int {
+	// Define f(-1) == false and f(n) == true.
+	// Invariant: f(i-1) == false, f(j) == true.
+	i, j := 0, n
+	for i &lt; j {
+		h := int(uint(i+j) &gt;&gt; 1) // avoid overflow when computing h
+		// i ≤ h &lt; j
+		if !f(h) {
+			i = h + 1 // preserves f(i-1) == false
+		} else {
+			j = h // preserves f(j) == true
+		}
+	}
+	// i == j, f(i-1) == false, and f(j) (= f(i)) == true  =&gt;  answer is i.
+	return i
+}
+</code></pre>
+<h4><a class="header" href="#binary-search-test" id="binary-search-test">Binary Search Test</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/searchingAlgorithms/binarysearch/binary_test.go">Binary Search Test</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="sorting-algorithms.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="graph-algorithms.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="sorting-algorithms.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="graph-algorithms.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

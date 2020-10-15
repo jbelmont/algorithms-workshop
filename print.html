@@ -1,0 +1,1467 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Algorithms Workshop</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> README</a></li><li class="chapter-item expanded "><a href="pseudocode.html"><strong aria-hidden="true">2.</strong> Pseudocode</a></li><li class="chapter-item expanded "><a href="big-o-notation.html"><strong aria-hidden="true">3.</strong> Big O Notation</a></li><li class="chapter-item expanded "><a href="analysis-of-algorithms.html"><strong aria-hidden="true">4.</strong> Analysis of Algorithms</a></li><li class="chapter-item expanded "><a href="the-halting-problem.html"><strong aria-hidden="true">5.</strong> The Halting Problem</a></li><li class="chapter-item expanded "><a href="math-for-algorithms.html"><strong aria-hidden="true">6.</strong> Math for Algorithms</a></li><li class="chapter-item expanded "><a href="data-structures.html"><strong aria-hidden="true">7.</strong> Data Structures</a></li><li class="chapter-item expanded "><a href="sorting-algorithms.html"><strong aria-hidden="true">8.</strong> Sorting Algorithms</a></li><li class="chapter-item expanded "><a href="searching-algorithms.html"><strong aria-hidden="true">9.</strong> Searching Algorithms</a></li><li class="chapter-item expanded "><a href="graph-algorithms.html"><strong aria-hidden="true">10.</strong> Graph Algorithms</a></li><li class="chapter-item expanded "><a href="string-algorithms.html"><strong aria-hidden="true">11.</strong> String Algorithms</a></li><li class="chapter-item expanded "><a href="linear-programming.html"><strong aria-hidden="true">12.</strong> Linear Programming</a></li><li class="chapter-item expanded "><a href="dynamic-programming.html"><strong aria-hidden="true">13.</strong> Dynamic Programming</a></li><li class="chapter-item expanded "><a href="numerical_analysis.html"><strong aria-hidden="true">14.</strong> Numerical Analysis</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithms Workshop</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#algorithms-workshop" id="algorithms-workshop">Algorithms Workshop</a></h1>
+<p>A workshop on Data Structures and Algorithms</p>
+<h2><a class="header" href="#sections" id="sections">Sections</a></h2>
+<ul>
+<li><a href="index.html#definition-of-algorithms">Definition of Algorithm</a>
+<ul>
+<li><a href="index.html#history-of-algorithms">History of Algorithms</a></li>
+<li><a href="index.html#types-of-algorithms">Types of Algorithms</a></li>
+<li><a href="index.html#types-of-data-structures">Types of Data Structures</a></li>
+</ul>
+</li>
+<li><a href="./pseudocode.html">Pseudocode</a></li>
+<li><a href="./big-o-notation.html">Big O Notation</a></li>
+<li><a href="./analysis-of-algorithms.html">Analysis of Algorithms</a></li>
+<li><a href="./the-halting-problem.html">The Halting Problem</a></li>
+<li><a href="./math-for-algorithms.html">Math for Algorithms</a></li>
+<li><a href="./data-structures.html">Data Structures</a></li>
+<li><a href="./sorting-algorithms.html">Sorting Algorithms</a></li>
+<li><a href="./searching-algorithms.html">Searching Algorithms</a></li>
+<li><a href="./graph-algorithms.html">Graph Algorithms</a></li>
+<li><a href="./string-algorithms.html">String Algorithms</a></li>
+<li><a href="./linear-programming.html">Linear Programming</a></li>
+<li><a href="./dynamic-programming.html">Dynamic Programming</a></li>
+</ul>
+<h2><a class="header" href="#definition-of-algorithms" id="definition-of-algorithms">Definition of Algorithms</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Algorithm">Algorithm Definition Wikipedia</a></p>
+<blockquote>
+<p>In mathematics and computer science, an algorithm (/ˈælɡərɪðəm/ (About this soundlisten)) is a finite sequence of well-defined, computer-implementable instructions, typically to solve a class of problems or to perform a computation. Algorithms are always unambiguous and are used as specifications for performing calculations, data processing, automated reasoning, and other tasks.</p>
+</blockquote>
+<p>Think of algorithms like a recipe in a cookbook. You follow the instructions in the recipe to make your dish.</p>
+<h2><a class="header" href="#history-of-algorithms" id="history-of-algorithms">History of Algorithms</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Timeline_of_algorithms">Timeline of Algorithms via Wikipedia</a></p>
+<p>According to Wikipedia the earliest known algorithm were developed by the Egyptians between 1700 - 2000 BC.</p>
+<p>This algorithm involved multiplying 2 numbers together.</p>
+<p>In 1600 BC, the Babylonians developed the earliest known algorithm on factorization.</p>
+<p>Usually in the university you are introduced to Euclid's Algorithm which was created by Euclid in 300 BC.</p>
+<p>Please read the Algorithm Timeline I linked above for a more complete timeline of Algorithms.</p>
+<h2><a class="header" href="#types-of-algorithms" id="types-of-algorithms">Types of Algorithms</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/List_of_algorithms">List of Algorithms</a></p>
+<p>Types of Algorithms:</p>
+<ul>
+<li>
+<p>Simple Recursive Algorithms</p>
+</li>
+<li>
+<p>Backtracking Algorithms</p>
+</li>
+<li>
+<p>Divide and conquer algorithms</p>
+</li>
+<li>
+<p>Dynamic programming algorithms</p>
+</li>
+<li>
+<p>Greedy algorithms</p>
+</li>
+<li>
+<p>Branch and bound algorithms</p>
+</li>
+<li>
+<p>Brute force algorithms</p>
+</li>
+<li>
+<p>Randomized algorithms</p>
+</li>
+</ul>
+<h4><a class="header" href="#definition-of-recursive-algorithm" id="definition-of-recursive-algorithm">Definition of Recursive Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Recursion_%28computer_science%29">Recursion (Wikipedia)</a></p>
+<blockquote>
+<p>In computer science, recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. Such problems can generally be solved by iteration, but this needs to identify and index the smaller instances at programming time. Recursion solves such recursive problems by using functions that call themselves from within their own code. The approach can be applied to many types of problems, and recursion is one of the central ideas of computer science.</p>
+</blockquote>
+<h6><a class="header" href="#example-of-recursion" id="example-of-recursion">Example of Recursion</a></h6>
+<pre><code class="language-go">func fibonacci(number int) int {
+	if number &lt;= 1 {
+		return number
+	}
+	return fibonacci(number-1) + fibonacci(number-2)
+}
+</code></pre>
+<p>Notice here that the fibonacci function is calling itself and had a base case to make sure that the program ends.</p>
+<h4><a class="header" href="#backtracking-algorithms" id="backtracking-algorithms">Backtracking Algorithms</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Backtracking">Backtracking</a></p>
+<blockquote>
+<p>Backtracking is a general algorithm for finding all (or some) solutions to some computational problems, notably constraint satisfaction problems, that incrementally builds candidates to the solutions, and abandons a candidate (&quot;backtracks&quot;) as soon as it determines that the candidate cannot possibly be completed to a valid solution.</p>
+</blockquote>
+<p>Please read more about the <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle">Eight Queens Puzzle</a> for a Backtracking Problem.</p>
+<h4><a class="header" href="#divide-and-conquer-algorithms" id="divide-and-conquer-algorithms">Divide and Conquer Algorithms</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm">Divide and Conquer Algorithms</a></p>
+<blockquote>
+<p>In computer science, divide and conquer is an algorithm design paradigm based on multi-branched recursion. A divide-and-conquer algorithm works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. The solutions to the sub-problems are then combined to give a solution to the original problem.</p>
+</blockquote>
+<p>We will look later on in the workshop for specific <em>Divide and Conquer Algorithms</em></p>
+<h4><a class="header" href="#dynamic-programming-algorithms" id="dynamic-programming-algorithms">Dynamic programming algorithms</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Dynamic_programming">Dynamic Programming</a></p>
+<blockquote>
+<p>Dynamic Programming (DP) is an algorithmic technique for solving an optimization problem by breaking it down into simpler subproblems and utilizing the fact that the optimal solution to the overall problem depends upon the optimal solution to its subproblems.</p>
+</blockquote>
+<p>An example of Dynamic Programming Algorithm is a Dijkstra's Shortest Path Algorithm:</p>
+<h6><a class="header" href="#pseudocode-example" id="pseudocode-example">Pseudocode Example</a></h6>
+<pre><code>function Dijkstra(Graph, source):
+    create vertex set Q
+
+    for each vertex v in Graph:             
+        dist[v] ← INFINITY                  
+        prev[v] ← UNDEFINED                 
+        add v to Q                      
+    dist[source] ←                        
+
+    while Q is not empty:
+        u ← vertex in Q with min dist[u]    
+                                            
+        remove u from Q 
+        
+        for each neighbor v of u:           // only v that are still in Q
+            alt ← dist[u] + length(u, v)
+            if alt &lt; dist[v]:               
+                dist[v] ← alt 
+                prev[v] ← u 
+
+    return dist[], prev[]
+</code></pre>
+<h4><a class="header" href="#greedy-algorithm" id="greedy-algorithm">Greedy Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Greedy_algorithm">Greedy Algorighm Wikipdia</a></p>
+<blockquote>
+<p>A greedy algorithm is any algorithm that follows the problem-solving heuristic of making the locally optimal choice at each stage. In many problems, a greedy strategy does not usually produce an optimal solution, but nonetheless a greedy heuristic may yield locally optimal solutions that approximate a globally optimal solution in a reasonable amount of time.</p>
+</blockquote>
+<h6><a class="header" href="#greedy-algorithm-example" id="greedy-algorithm-example">Greedy Algorithm Example</a></h6>
+<p><em>Prim's Algorithm</em></p>
+<p>Read more about <a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">Prim's Algorithm at Wikipedia</a></p>
+<h4><a class="header" href="#branch-and-bound-algorithms" id="branch-and-bound-algorithms">Branch and Bound Algorithms</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Branch_and_bound">Branch and Bound</a></p>
+<blockquote>
+<p>Branch and bound (BB, B&amp;B, or BnB) is an algorithm design paradigm for discrete and combinatorial optimization problems, as well as mathematical optimization. A branch-and-bound algorithm consists of a systematic enumeration of candidate solutions by means of state space search: the set of candidate solutions is thought of as forming a rooted tree with the full set at the root. The algorithm explores branches of this tree, which represent subsets of the solution set. Before enumerating the candidate solutions of a branch, the branch is checked against upper and lower estimated bounds on the optimal solution, and is discarded if it cannot produce a better solution than the best one found so far by the algorithm.</p>
+</blockquote>
+<h6><a class="header" href="#branch-and-bound-algorithm-example" id="branch-and-bound-algorithm-example">Branch and Bound Algorithm Example</a></h6>
+<p>The <a href="https://en.wikipedia.org/wiki/Knapsack_problem">Knapsack problem</a> is an example where you can use Branch and Bound Algorithm to solve.</p>
+<h4><a class="header" href="#brute-force-algorithm" id="brute-force-algorithm">Brute force Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Brute-force_search">Brute Force Search</a></p>
+<blockquote>
+<p>In computer science, brute-force search or exhaustive search, also known as generate and test, is a very general problem-solving technique and algorithmic paradigm that consists of systematically enumerating all possible candidates for the solution and checking whether each candidate satisfies the problem's statement.</p>
+</blockquote>
+<h4><a class="header" href="#randomized-algorithm" id="randomized-algorithm">Randomized Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Randomized_algorithm">Randomized Algorithm</a></p>
+<blockquote>
+<p>A randomized algorithm is an algorithm that employs a degree of randomness as part of its logic. The algorithm typically uses uniformly random bits as an auxiliary input to guide its behavior, in the hope of achieving good performance in the &quot;average case&quot; over all possible choices of random bits. Formally, the algorithm's performance will be a random variable determined by the random bits; thus either the running time, or the output (or both) are random variables.</p>
+</blockquote>
+<h6><a class="header" href="#randomized-algorithm-example" id="randomized-algorithm-example">Randomized Algorithm Example</a></h6>
+<p>The <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo Algorithm</a> is an example of a Randomized Algorithm.</p>
+<h2><a class="header" href="#types-of-data-structures" id="types-of-data-structures">Types of Data Structures</a></h2>
+<p>Please checkout the <a href="https://en.wikipedia.org/wiki/List_of_data_structures">List of Data Structures Wikipedia</a> for a complete list of Data Structures by type.</p>
+<p>Common Data Structures:</p>
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Linked_list">Linked List</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Hash_table">Hash Table</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Binary_tree">Binary Tree</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Array_data_structure">Array</a></p>
+</li>
+</ul>
+<h1><a class="header" href="#algorithms-workshop---pseudocode" id="algorithms-workshop---pseudocode">Algorithms Workshop - Pseudocode</a></h1>
+<h2><a class="header" href="#pseudocode-definition" id="pseudocode-definition">Pseudocode Definition</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Pseudocode">Definition of Pseudocode (Wikipedia)</a></p>
+<blockquote>
+<p>In computer science, pseudocode is an informal high-level description of the operating principle of a computer program or other algorithm. It uses the structural conventions of a normal programming language, but is intended for human reading rather than machine reading. Pseudocode typically omits details that are essential for machine understanding of the algorithm, such as variable declarations, system-specific code and some subroutines. The programming language is augmented with natural language description details, where convenient, or with compact mathematical notation. The purpose of using pseudocode is that it is easier for people to understand than conventional programming language code, and that it is an efficient and environment-independent description of the key principles of an algorithm. It is commonly used in textbooks and scientific publications that are documenting various algorithms, and also in planning of computer program development, for sketching out the structure of the program before the actual coding takes place.</p>
+</blockquote>
+<p>The pseudocode that you use can be a more formal syntax which is known as a <em>Pidgin</em> code.</p>
+<p>Pidgin code is often used by more mathematically inclined individuals but is not strictly necessary.</p>
+<p>I have personally seen people write <em>Pseudocode</em> like english language and some who write pseudocode in their day to day programming language.</p>
+<h4><a class="header" href="#pseudocode-example-1" id="pseudocode-example-1">Pseudocode Example</a></h4>
+<pre><code>algorithm quicksort(A, lo, hi) is
+    if lo &lt; hi then
+        p := partition(A, lo, hi)
+        quicksort(A, lo, p - 1)
+        quicksort(A, p + 1, hi)
+
+algorithm partition(A, lo, hi) is
+    pivot := A[hi]
+    i := lo
+    for j := lo to hi do
+        if A[j] &lt; pivot then
+            swap A[i] with A[j]
+            i := i + 1
+    swap A[i] with A[hi]
+    return i
+</code></pre>
+<h4><a class="header" href="#pidgin-code-example" id="pidgin-code-example">Pidgin Code Example</a></h4>
+<p>This is using a mathematical style symbols:</p>
+<p>\( \int x dx\; = \;\frac{x^2}{2} + C \)</p>
+<h1><a class="header" href="#algorithms-workshop---big-o-notation" id="algorithms-workshop---big-o-notation">Algorithms Workshop - Big-O Notation</a></h1>
+<h2><a class="header" href="#what-is-big-o-notation" id="what-is-big-o-notation">What is Big-O Notation</a></h2>
+<blockquote>
+<p>In computer science, big O notation is used to classify algorithms according to how their run time or space requirements grow as the input size grows. In analytic number theory, big O notation is often used to express a bound on the difference between an arithmetical function and a better understood approximation; a famous example of such a difference is the remainder term in the prime number theorem.</p>
+</blockquote>
+<p>When talking about data structures and algorithms you will frequently encounter Big O Notation for a given algorithm.</p>
+<h2><a class="header" href="#big-o-little-o-theta-and-omega" id="big-o-little-o-theta-and-omega">Big-O, Little-O, Theta, and Omega</a></h2>
+<p>When talking about algorithms Big O, Little o, Omega and Theta are formal notational methods that state the growth of an algorithm in terms of efficiency and storage.</p>
+<h4><a class="header" href="#big-o-notation" id="big-o-notation">Big-O notation</a></h4>
+<p>Big-O notation is denoted by \( \mathcal{O}(n) \). </p>
+<h4><a class="header" href="#little-o-notation" id="little-o-notation">Little-O notation</a></h4>
+<p>Little-O notation is denoted by \( o(n) \)</p>
+<h4><a class="header" href="#theta" id="theta">Theta</a></h4>
+<p>Theta notation is denoted by \( \Theta(n) \)</p>
+<h4><a class="header" href="#omega" id="omega">Omega</a></h4>
+<p>Omega notation is denoted by \( \Omega(n) \)</p>
+<h2><a class="header" href="#difference-between-big-o-little-o-theta-and-omega" id="difference-between-big-o-little-o-theta-and-omega">Difference between Big-O, Little-O, Theta and Omega</a></h2>
+<p>The differences between Big-O, Little-O, Theta, and Omega center around constraints and growth rates.</p>
+<h4><a class="header" href="#informal-explanation-for-big-o-little-o-theta-and-omega" id="informal-explanation-for-big-o-little-o-theta-and-omega">Informal explanation for Big-O, Little-O, Theta and Omega</a></h4>
+<p>Big-O: \( T(n) \; is \; \mathcal{O}(f(n)) \; \rightarrow \) f(n) describes upper bound for T(n) </p>
+<p>Little-O: \( T(n) \; is \; o(f(n)) \; \rightarrow \) f(n) describes the lower bound for T(n)</p>
+<p>Theta: \( T(n) \; is \; \Theta(f(n)) \; \rightarrow \) f(n) describes the exact bound for T(n)</p>
+<p>Omega: \( T(n) \; is \; \Omega(f(n)) \; \rightarrow \) f(n) is the upper bound for T(n) but T(n) can never be equal to f(n)</p>
+<h1><a class="header" href="#algorithms-workshop---analysis-of-algorithms" id="algorithms-workshop---analysis-of-algorithms">Algorithms Workshop - Analysis of Algorithms</a></h1>
+<h2><a class="header" href="#cost-model" id="cost-model">Cost Model</a></h2>
+<p>Cost Models rely on analysis of the actual execution time and the time required to perform an individual step.</p>
+<h2><a class="header" href="#orders-of-growth" id="orders-of-growth">Orders of Growth</a></h2>
+<p>An algorithm is said to show a growth rate on the order of a mathematical functon and can be constrained with an upper bound as we saw in the Big-O section of the workshop.</p>
+<h2><a class="header" href="#cost-analysis-1" id="cost-analysis-1">Cost Analysis 1</a></h2>
+<p><em>Sample Code:</em></p>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	var number [20]int
+
+	for n := 0; n &lt; 20; n++ {
+		number[n] = n + 100
+		fmt.Printf(&quot;Number[%d] = %d\n&quot;, n, number[n])
+	}
+}
+</code></pre>
+<p><img src="./images/cost_analysis.png" alt="cost analysis" /></p>
+<p>Notice in my laptop which is a MacBook 2015 with 2.2 GHz Intel Core i7 processor this program took 0.15s user seconds</p>
+<p>The computational time taken here is 20 * t and <em>t</em> is the time that it takes to add 2 integers and then update an array.</p>
+<p>The <em>t</em> value here will vary depending on the computer hardware.</p>
+<h4><a class="header" href="#analysis-of-program" id="analysis-of-program">Analysis of program</a></h4>
+<p>\( T(n) \; = \; \mathcal{O}(f(n)) \; \rightarrow  Linear Time Complexity \)</p>
+<h2><a class="header" href="#cost-analysis-2" id="cost-analysis-2">Cost Analysis 2</a></h2>
+<p><em>Sample Code:</em></p>
+<pre><code class="language-go">func quadraticComplexity(iteration int) int {
+	var computation int
+	for i := 1; i &lt;= iteration; i++ {
+		for j := 1; j &lt;= iteration; j++ {
+			computation = i * j
+			fmt.Println(computation)
+		}
+	}
+	return computation
+}
+</code></pre>
+<pre><code class="language-sh">time go test
+........................
+100
+PASS
+ok  	github.com/jbelmont/algorithms-workshop/analysis/quadratic	0.253s
+go test  0.38s user 0.28s system 100% cpu 0.655 total
+</code></pre>
+<h4><a class="header" href="#analysis-of-program-1" id="analysis-of-program-1">Analysis of program</a></h4>
+<p>\( T(n) \; = \mathcal{O}({n^2}) \; \rightarrow Quadratic \; Time \; Complexity \)</p>
+<h2><a class="header" href="#cost-analysis-3" id="cost-analysis-3">Cost Analysis 3</a></h2>
+<p><em>Sample Code:</em></p>
+<pre><code class="language-go">func cubicComplexity() int {
+	const iteration = 10
+	var threeDArr [iteration][iteration][iteration]int
+	var compute int
+	for i := 0; i &lt; iteration; i++ {
+		for j := 0; j &lt; iteration; j++ {
+			for k := 0; k &lt; iteration; k++ {
+				compute = (i + j) * k
+				threeDArr[i][j][k] = compute
+				fmt.Printf(&quot;Value in threeDArr[i][j][k] = %d\n&quot;, threeDArr[i][j][k])
+			}
+		}
+	}
+	return compute
+}
+</code></pre>
+<pre><code class="language-sh">time go test
+.............................................
+Value in threeDArr[i][j][k] = 162
+PASS
+ok      github.com/jbelmont/algorithms-workshop/analysis/cubic  0.288s
+go test  0.38s user 0.24s system 101% cpu 0.601 total
+</code></pre>
+<h4><a class="header" href="#analysis-of-program-2" id="analysis-of-program-2">Analysis of program</a></h4>
+<p>\( T(n) \; = \mathcal{O}({n^3}) \; \rightarrow \; Cubic  \)</p>
+<h2><a class="header" href="#cost-analysis-4" id="cost-analysis-4">Cost Analysis 4</a></h2>
+<p><em>Sample Code:</em></p>
+<pre><code class="language-go">package logarithmic
+
+import &quot;fmt&quot;
+
+type Tree struct {
+	LNode *Tree
+	Val   int
+	RNode *Tree
+}
+
+func (t *Tree) insert(val int) {
+	if t != nil {
+		if t.LNode == nil {
+			t.LNode = &amp;Tree{
+				nil, val, nil,
+			}
+		} else if t != nil &amp;&amp; t.RNode == nil {
+			t.RNode = &amp;Tree{
+				nil, val, nil,
+			}
+		} else {
+			if t.LNode != nil {
+				t.LNode.insert(val)
+			} else {
+				t.RNode.insert(val)
+			}
+		}
+	} else {
+		t = &amp;Tree{
+			nil, val, nil,
+		}
+	}
+}
+
+func printTree(t *Tree) {
+	if t != nil {
+		fmt.Printf(&quot;Tree value is %v\n&quot;, t.Val)
+		fmt.Printf(&quot;Left Tree Node &quot;)
+		printTree(t.LNode)
+		fmt.Printf(&quot;Right Tree Node &quot;)
+		printTree(t.RNode)
+	} else {
+		fmt.Printf(&quot;Nil\n&quot;)
+	}
+}
+</code></pre>
+<p><img src="./images/cost_analysis4.png" alt="Cost Analysis 4" /></p>
+<h4><a class="header" href="#analysis-of-program-3" id="analysis-of-program-3">Analysis of program</a></h4>
+<p>\( T(n) \; = \mathcal{O}(log \; n) \; \rightarrow \; Logarithmic  \)</p>
+<p><em>An algorithms has a logarithmic complexity if the time it takes to process it is proportional to the logarithm of its inputs.</em></p>
+<p><em>The logarithm base is usually in base 2.</em></p>
+<p><em>The tree we used here is a binary tree with a Left Node and a Right Node.</em></p>
+<p><em>The insert method is of \( \mathcal{O}(log \; n) \) where n i sthe number of nodes.</em></p>
+<h1><a class="header" href="#algorithms-workshop---the-halting-problem" id="algorithms-workshop---the-halting-problem">Algorithms Workshop - The Halting Problem</a></h1>
+<h2><a class="header" href="#halting-problem-defined" id="halting-problem-defined">Halting Problem Defined</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Halting_problem">Halting Problem (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computability theory, the halting problem is the problem of determining, from a description of an arbitrary computer program and an input, whether the program will finish running, or continue to run forever. Alan Turing proved in 1936 that a general algorithm to solve the halting problem for all possible program-input pairs cannot exist. For any program f that might determine if programs halt, a &quot;pathological&quot; program g called with an input can pass its own source and its input to f and then specifically do the opposite of what f predicts g will do. No f can exist that handles this case. A key part of the proof was a mathematical definition of a computer and program, which became known as a Turing machine; the halting problem is undecidable over Turing machines. Turing's proof is one of the first cases of decision problems to be concluded. The theoretical conclusion that it is not solvable is significant to practical computing efforts, defining a class of applications which no programming invention can possibly perform perfectly.</p>
+</blockquote>
+<p>The Halting problem is important because it helps show the difficulty of a given algorithm.</p>
+<p>It pretty much shows that sometimes you can only guess at a problem and cannot come up with an actual way to solve the problem.</p>
+<h2><a class="header" href="#historical-background" id="historical-background">Historical Background</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Halting_problem#History">Halting (Wikipedia History)</a></p>
+<blockquote>
+<p>The halting problem is historically important because it was one of the first problems to be proved undecidable. (Turing's proof went to press in May 1936, whereas Alonzo Church's proof of the undecidability of a problem in the lambda calculus had already been published in April 1936 [Church, 1936].) Subsequently, many other undecidable problems have been described.</p>
+</blockquote>
+<h2><a class="header" href="#proof-by-contradiction" id="proof-by-contradiction">Proof by Contradiction</a></h2>
+<p>Alan Turing proved the Halting Problem through Contradiction.</p>
+<h2><a class="header" href="#what-is-an-example-of-a-halting-problem" id="what-is-an-example-of-a-halting-problem">What is an example of a Halting Problem</a></h2>
+<p>Lets say you write a computer program and the program doesn't stop and just hangs.</p>
+<p>So you ask yourself will this program <em>Halt</em> or stop or will it continue to run forever.</p>
+<h1><a class="header" href="#algorithms-workshop---math-for-algorithms" id="algorithms-workshop---math-for-algorithms">Algorithms Workshop - Math for Algorithms</a></h1>
+<h2><a class="header" href="#summations" id="summations">Summations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Summation">Summation (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In mathematics, summation is the addition of a sequence of any kind of numbers, called addends or summands; the result is their sum or total. Beside numbers, other types of values can be summed as well: functions, vectors, matrices, polynomials and, in general, elements of any type of mathematical objects on which an operation denoted &quot;+&quot; is defined.</p>
+</blockquote>
+<h2><a class="header" href="#sets" id="sets">Sets</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Set_%28mathematics%29">Set (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In mathematics, a set is a well-defined collection of distinct objects, considered as an object in its own right. The arrangement of the objects in the set does not matter. A set may be denoted by placing its objects between a pair of curly braces. For example, the numbers 2, 4, and 6 are distinct objects when considered separately; when considered collectively, they form a single set of size three, written as {2, 4, 6}, which could also be written as {2, 6, 4}, {4, 2, 6}, {4, 6, 2}, {6, 2, 4} or {6, 4, 2}.</p>
+</blockquote>
+<h2><a class="header" href="#graphs" id="graphs">Graphs</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Graph_%28discrete_mathematics%29">Graphs (discrete mathematics)</a></p>
+<blockquote>
+<p>In mathematics, and more specifically in graph theory, a graph is a structure amounting to a set of objects in which some pairs of the objects are in some sense &quot;related&quot;. The objects correspond to mathematical abstractions called vertices (also called nodes or points) and each of the related pairs of vertices is called an edge (also called link or line). Typically, a graph is depicted in diagrammatic form as a set of dots or circles for the vertices, joined by lines or curves for the edges. Graphs are one of the objects of study in discrete mathematics.</p>
+</blockquote>
+<h2><a class="header" href="#counting" id="counting">Counting</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Counting">Counting (Wikipedia Definition)</a></p>
+<blockquote>
+<p>Counting is the process of determining the number of elements of a finite set of objects. The traditional way of counting consists of continually increasing a (mental or spoken) counter by a unit for every element of the set, in some order, while marking (or displacing) those elements to avoid visiting the same element more than once, until no unmarked elements are left; if the counter was set to one after the first object, the value after visiting the final object gives the desired number of elements. The related term enumeration refers to uniquely identifying the elements of a finite (combinatorial) set or infinite set by assigning a number to each element.</p>
+</blockquote>
+<h2><a class="header" href="#probability" id="probability">Probability</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Probability">Probability (Wikipedia Definition)</a></p>
+<blockquote>
+<p>Probability is the branch of mathematics concerning numerical descriptions of how likely an event is to occur, or how likely it is that a proposition is true. The probability of an event is a number between 0 and 1, where, roughly speaking, 0 indicates impossibility of the event and 1 indicates certainty. The higher the probability of an event, the more likely it is that the event will occur. A simple example is the tossing of a fair (unbiased) coin. Since the coin is fair, the two outcomes (&quot;heads&quot; and &quot;tails&quot;) are both equally probable; the probability of &quot;heads&quot; equals the probability of &quot;tails&quot;; and since no other outcomes are possible, the probability of either &quot;heads&quot; or &quot;tails&quot; is 1/2 (which could also be written as 0.5 or 50%).</p>
+</blockquote>
+<h2><a class="header" href="#matrices" id="matrices">Matrices</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)">Matrices (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In mathematics, a matrix (plural matrices) is a rectangular array or table (see irregular matrix) of numbers, symbols, or expressions, arranged in rows and columns. For example, the dimension of the matrix below is 2 × 3 (read &quot;two by three&quot;), because there are two rows and three columns:</p>
+</blockquote>
+<p>\[
+\begin{equation*}
+M = 
+\begin{bmatrix}
+1 &amp; 9 &amp; -13
+\\20 &amp; 5 &amp; -6
+\end{bmatrix}
+\end{equation*}
+\]</p>
+<h1><a class="header" href="#algorithms-workshop---data-structures" id="algorithms-workshop---data-structures">Algorithms Workshop - Data Structures</a></h1>
+<h2><a class="header" href="#definition-of-a-data-structure" id="definition-of-a-data-structure">Definition of a Data Structure</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Data_structure">Data Structure (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a data structure is a data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.</p>
+</blockquote>
+<h2><a class="header" href="#types-of-data-structures-1" id="types-of-data-structures-1">Types of Data Structures</a></h2>
+<h4><a class="header" href="#linear-data-structures" id="linear-data-structures">Linear Data Structures</a></h4>
+<p>A data structure is linear if its elements form a sequence:</p>
+<ul>
+<li>Lists</li>
+<li>Sets</li>
+<li>Tuples</li>
+<li>Queues</li>
+<li>Stacks</li>
+</ul>
+<h2><a class="header" href="#nonlinear-data-structures" id="nonlinear-data-structures">NonLinear Data Structures</a></h2>
+<p>A data structure is non-linear when an element is connected to many other elements</p>
+<ul>
+<li>Trees</li>
+<li>Tables</li>
+<li>Hash</li>
+<li>Containers</li>
+</ul>
+<h2><a class="header" href="#dynamic-data-structures" id="dynamic-data-structures">Dynamic Data Structures</a></h2>
+<ul>
+<li>Dictionaries</li>
+<li>TreeSets</li>
+<li>Sequences</li>
+</ul>
+<h2><a class="header" href="#set-operations" id="set-operations">Set Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Set_%28abstract_data_type%29">Set (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a set is an abstract data type that can store unique values, without any particular order. It is a computer implementation of the mathematical concept of a finite set. Unlike most other collection types, rather than retrieving a specific element from a set, one typically tests a value for membership in a set.</p>
+</blockquote>
+<h4><a class="header" href="#union" id="union">Union</a></h4>
+<p>The union of s and t returns all the elements of set s and set t</p>
+<h4><a class="header" href="#intersection" id="intersection">Intersection</a></h4>
+<p>The intersection of s and t return the all the elements that belong to A and to B</p>
+<h4><a class="header" href="#add" id="add">Add</a></h4>
+<p>Add is a method that adds an element to the set</p>
+<h4><a class="header" href="#remove" id="remove">Remove</a></h4>
+<p>Remove is a method that removes an element from the set</p>
+<h4><a class="header" href="#set-implementation" id="set-implementation">Set Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/set/set.go">Set Implementation</a></p>
+<h4><a class="header" href="#set-test-run" id="set-test-run">Set Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/set/set_test.go">Set Tests</a></p>
+<h2><a class="header" href="#stack-operations" id="stack-operations">Stack Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29">Stack (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a stack is an abstract data type that serves as a collection of elements, with two main principal operations:
+push, which adds an element to the collection, and
+pop, which removes the most recently added element that was not yet removed.</p>
+</blockquote>
+<h4><a class="header" href="#push" id="push">Push</a></h4>
+<p>Add an element to the stack</p>
+<h4><a class="header" href="#pop" id="pop">Pop</a></h4>
+<p>Remove most recent element from the stack and return it.</p>
+<h4><a class="header" href="#stack-implementation" id="stack-implementation">Stack Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/stack/stack.go">Stack Implementation</a></p>
+<h4><a class="header" href="#list-test-run" id="list-test-run">List Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/stack/stack_test.go">Stack Tests</a></p>
+<h2><a class="header" href="#list-operations" id="list-operations">List Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/List_%28abstract_data_type%29">List (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a list or sequence is an abstract data type that represents a countable number of ordered values, where the same value may occur more than once. An instance of a list is a computer representation of the mathematical concept of a tuple or finite sequence; the (potentially) infinite analog of a list is a stream. Lists are a basic example of containers, as they contain other values. If the same value occurs multiple times, each occurrence is considered a distinct item.</p>
+</blockquote>
+<h4><a class="header" href="#append" id="append">Append</a></h4>
+<p>Operation to append an element to a list</p>
+<h4><a class="header" href="#prepend" id="prepend">Prepend</a></h4>
+<p>Operation to prepend an element to a list</p>
+<h4><a class="header" href="#head" id="head">Head</a></h4>
+<p>Operation to find the first element of a list</p>
+<h4><a class="header" href="#empty" id="empty">Empty</a></h4>
+<p>Operation to determine whether or not a list is empty</p>
+<h4><a class="header" href="#doubly-linkedlist-implementation" id="doubly-linkedlist-implementation">Doubly LinkedList Implementation</a></h4>
+<p><a href="https://github.com/golang/go/blob/go1.15.2/src/container/list/list.go">Doubly LinkedList Implementation</a></p>
+<h4><a class="header" href="#singly-linkedlist-implementation" id="singly-linkedlist-implementation">Singly LinkedList Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/linkedlist/linkedlist.go">Singly LinkedList Implementation</a></p>
+<h4><a class="header" href="#singly-list-test-run" id="singly-list-test-run">Singly List Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/list/list_test.go">List Tests</a></p>
+<h2><a class="header" href="#queue-operations" id="queue-operations">Queue Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Queue_%28abstract_data_type%29">Queue (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a queue is a collection of entities that are maintained in a sequence and can be modified by the addition of entities at one end of the sequence and the removal of entities from the other end of the sequence. By convention, the end of the sequence at which elements are added is called the back, tail, or rear of the queue, and the end at which elements are removed is called the head or front of the queue, analogously to the words used when people line up to wait for goods or services.</p>
+</blockquote>
+<h4><a class="header" href="#new" id="new">New</a></h4>
+<p>Should return a new queue</p>
+<h4><a class="header" href="#enqueue" id="enqueue">Enqueue</a></h4>
+<p>Operation should add item to the queue</p>
+<h4><a class="header" href="#dequeue" id="dequeue">Dequeue</a></h4>
+<p>Operation should remove and return first item added to the queue in FIFO order</p>
+<h4><a class="header" href="#queue-implementation" id="queue-implementation">Queue Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/queue/queue.go">Queue Implementation</a></p>
+<h4><a class="header" href="#queue-test-run" id="queue-test-run">Queue Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/queue/queue_test.go">Queue Test Run</a></p>
+<h2><a class="header" href="#tree-operations" id="tree-operations">Tree Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Tree_%28data_structure%29">Tree (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a tree is a widely used abstract data type that simulates a hierarchical tree structure, with a root value and subtrees of children with a parent node, represented as a set of linked nodes.</p>
+</blockquote>
+<blockquote>
+<p>A tree data structure can be defined recursively as a collection of nodes (starting at a root node), where each node is a data structure consisting of a value, together with a list of references to nodes (the &quot;children&quot;), with the constraints that no reference is duplicated, and none points to the root.</p>
+</blockquote>
+<h2><a class="header" href="#table-operations" id="table-operations">Table Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Table_%28information%29">Table (Wikipedia Definition)</a></p>
+<blockquote>
+<p>A table is an arrangement of data in rows and columns, or possibly in a more complex structure. Tables are widely used in communication, research, and data analysis. Tables appear in print media, handwritten notes, computer software, architectural ornamentation, traffic signs, and many other places. The precise conventions and terminology for describing tables vary depending on the context. Further, tables differ significantly in variety, structure, flexibility, notation, representation and use. In books and technical articles, tables are typically presented apart from the main text in numbered and captioned floating blocks.</p>
+</blockquote>
+<p>A Table has rows and columns</p>
+<h4><a class="header" href="#table-implementation" id="table-implementation">Table Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/table/table.go">Table Implementation</a></p>
+<h4><a class="header" href="#table-test-run" id="table-test-run">Table Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/table/table_test.go">Table Test Run</a></p>
+<h2><a class="header" href="#dictionary-operations" id="dictionary-operations">Dictionary Operations</a></h2>
+<p>A dictionary can be thought of as a set of key, value pairs. Dictionaries are often used in stoaring a set of data items.</p>
+<h4><a class="header" href="#dictionary-implementation" id="dictionary-implementation">Dictionary Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/dictionary/dictionary.go">Dictionary Implementation</a></p>
+<h4><a class="header" href="#dictionary-test-run" id="dictionary-test-run">Dictionary Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/dictionary/dictionary_test.go">Dictionary Test Run</a></p>
+<h1><a class="header" href="#algorithms-workshop---sorting-algorithms" id="algorithms-workshop---sorting-algorithms">Algorithms Workshop - Sorting Algorithms</a></h1>
+<h2><a class="header" href="#sorting-algorithm-definition" id="sorting-algorithm-definition">Sorting Algorithm Definition</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Sorting_algorithm">Sorting Algorithm (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a sorting algorithm is an algorithm that puts elements of a list in a certain order. The most frequently used orders are numerical order and lexicographical order. Efficient sorting is important for optimizing the efficiency of other algorithms (such as search and merge algorithms) that require input data to be in sorted lists. Sorting is also often useful for canonicalizing data and for producing human-readable output. More formally, the output of any sorting algorithm must satisfy two conditions:</p>
+</blockquote>
+<blockquote>
+<p>The output is in nondecreasing order (each element is no smaller than the previous element according to the desired total order);</p>
+</blockquote>
+<blockquote>
+<p>The output is a permutation (a reordering, yet retaining all of the original elements) of the input.</p>
+</blockquote>
+<h2><a class="header" href="#sorting-in-golang" id="sorting-in-golang">Sorting in Golang</a></h2>
+<p>In Golang you can use the <a href="https://pkg.go.dev/sort">Sort package</a> to sort slices</p>
+<p>You define the following methods:</p>
+<ul>
+<li>Len</li>
+<li>Swap</li>
+<li>Less</li>
+</ul>
+<h4><a class="header" href="#sorting-code-in-action" id="sorting-code-in-action">Sorting Code in Action</a></h4>
+<pre><code class="language-go">package sorting
+
+import (
+	&quot;fmt&quot;
+)
+
+type Soldier struct {
+	Name           string
+	Rank           string
+	Age            int
+	YearsOfService int
+}
+
+func (s Soldier) ToString() string {
+	return fmt.Sprintf(
+		&quot;Name: %s\nRank: %s\nAge: %d\nYearsOfService: %d\n&quot;,
+		s.Name,
+		s.Rank,
+		s.Age,
+		s.YearsOfService,
+	)
+}
+
+type SortByYearsOfService []Soldier
+
+func (s SortByYearsOfService) Len() int {
+	return len(s)
+}
+
+func (s SortByYearsOfService) Swap(i int, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func (s SortByYearsOfService) Less(i int, j int) bool {
+	return s[i].YearsOfService &lt; s[j].YearsOfService
+}
+</code></pre>
+<h4><a class="header" href="#sorting-test" id="sorting-test">Sorting Test</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/sortingAlgorithms/sorting/sorting_test.go">Sorting Test</a></p>
+<h2><a class="header" href="#bubble-sort-algorithm" id="bubble-sort-algorithm">Bubble Sort Algorithm</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble Sort (Wikipedia Definition)</a></p>
+<blockquote>
+<p>Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements &quot;bubble&quot; to the top of the list.</p>
+</blockquote>
+<h4><a class="header" href="#pseudocode-implementation" id="pseudocode-implementation">Pseudocode Implementation</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Bubble_sort#Pseudocode_implementation">Pseudocode (Wikipedia)</a></p>
+<pre><code>procedure bubbleSort(A : list of sortable items)
+    n := length(A)
+    repeat
+        swapped := false
+        for i := 1 to n-1 inclusive do
+            /* if this pair is out of order */
+            if A[i-1] &gt; A[i] then
+                /* swap them and remember something changed */
+                swap(A[i-1], A[i])
+                swapped := true
+            end if
+        end for
+    until not swapped
+end procedure
+</code></pre>
+<h4><a class="header" href="#bubble-sort-implementation" id="bubble-sort-implementation">Bubble Sort Implementation</a></h4>
+<pre><code class="language-go">package bubblesort
+
+func bubblesort(numbers []int, numOfElements int) int {
+	var swapTotal int
+
+	for i := 0; i &lt; numOfElements; i++ {
+
+		var numberOfSwaps int
+
+		for j := 0; j &lt; numOfElements-1; j++ {
+			if numbers[j] &gt; numbers[j+1] {
+				// Use go way to swap numbers instead of longer version in other languages.
+				numbers[j], numbers[j+1] = numbers[j+1], numbers[j]
+				numberOfSwaps += 1
+			}
+		}
+
+		swapTotal += numberOfSwaps
+
+		// If no elements were swapped during a traversal, array is sorted
+		if numberOfSwaps == 0 {
+			break
+		}
+	}
+
+	return swapTotal
+}
+</code></pre>
+<h4><a class="header" href="#bubble-sort-test" id="bubble-sort-test">Bubble Sort Test</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/sortingAlgorithms/bubblesort/bubblesort_test.go">Test</a></p>
+<h2><a class="header" href="#quick-sort-algorithm" id="quick-sort-algorithm">Quick Sort Algorithm</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort (Wikipedia Definition)</a></p>
+<blockquote>
+<p>Quicksort (sometimes called partition-exchange sort) is an efficient sorting algorithm. Developed by British computer scientist Tony Hoare in 1959 and published in 1961, it is still a commonly used algorithm for sorting. When implemented well, it can be about two or three times faster than its main competitors, merge sort and heapsort.</p>
+</blockquote>
+<h4><a class="header" href="#lomuto-partitiion-scheme" id="lomuto-partitiion-scheme">Lomuto Partitiion Scheme</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Quicksort#Lomuto_partition_scheme">Lomuto partition scheme</a></p>
+<blockquote>
+<p>Lomuto partition scheme
+This scheme is attributed to Nico Lomuto and popularized by Bentley in his book Programming Pearls and Cormen et al. in their book Introduction to Algorithms. This scheme chooses a pivot that is typically the last element in the array. The algorithm maintains index i as it scans the array using another index j such that the elements at lo through i-1 (inclusive) are less than the pivot, and the elements at i through j (inclusive) are equal to or greater than the pivot. As this scheme is more compact and easy to understand, it is frequently used in introductory material, although it is less efficient than Hoare's original scheme e.g., when all elements are equal. This scheme degrades to \( \mathcal{O}(n^2) \) when the array is already in order.There have been various variants proposed to boost performance including various ways to select pivot, deal with equal elements, use other sorting algorithms such as Insertion sort for small arrays and so on. In pseudocode, a quicksort that sorts elements at lo through hi (inclusive) of an array A can be expressed as:[1</p>
+</blockquote>
+<h6><a class="header" href="#lomuto-pseudocode" id="lomuto-pseudocode">Lomuto Pseudocode</a></h6>
+<pre><code>algorithm quicksort(A, lo, hi) is
+    if lo &lt; hi then
+        p := partition(A, lo, hi)
+        quicksort(A, lo, p - 1)
+        quicksort(A, p + 1, hi)
+
+algorithm partition(A, lo, hi) is
+    pivot := A[hi]
+    i := lo
+    for j := lo to hi do
+        if A[j] &lt; pivot then
+            swap A[i] with A[j]
+            i := i + 1
+    swap A[i] with A[hi]
+    return i
+</code></pre>
+<h4><a class="header" href="#quicksort-lomuto-implementation" id="quicksort-lomuto-implementation">QuickSort Lomuto Implementation</a></h4>
+<pre><code class="language-go">package quicksort
+
+func partition(numbers []int, low, high int) int {
+	i := low
+	pivot := numbers[high]
+	for j := low; j &lt; high; j++ {
+		if numbers[j] &lt; pivot {
+			// Use go way to swap numbers instead of longer version in other languages.
+			numbers[i], numbers[j] = numbers[j], numbers[i]
+			i += 1
+		}
+	}
+	numbers[i], numbers[high] = numbers[high], numbers[i]
+	return i
+}
+
+func quicksort(numbers []int, low, high int) {
+	if low &lt; high {
+		p := partition(numbers, low, high)
+		quicksort(numbers, low, p-1)
+		quicksort(numbers, p+1, high)
+	}
+}
+</code></pre>
+<h4><a class="header" href="#quicksort-lomuto-test-run" id="quicksort-lomuto-test-run">QuickSort Lomuto Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/sortingAlgorithms/quicksort/quicksort_test.go">Test</a></p>
+<h2><a class="header" href="#selection-sort-algorithm" id="selection-sort-algorithm">Selection Sort Algorithm</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Selection_sort">Selection Sort (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, selection sort is an in-place comparison sorting algorithm. It has an \( \mathcal{O}(n^2) \) time complexity, which makes it inefficient on large lists, and generally performs worse than the similar insertion sort. Selection sort is noted for its simplicity and has performance advantages over more complicated algorithms in certain situations, particularly where auxiliary memory is limited.</p>
+</blockquote>
+<h4><a class="header" href="#selection-sort-implementation" id="selection-sort-implementation">Selection Sort Implementation</a></h4>
+<pre><code class="language-go">package selectionsort
+
+func selectionSort(elements []int) {
+	count := len(elements) - 1
+	for i := 0; i &lt; count; i++ {
+		minimum := i
+		var j int
+		for j = i + 1; j &lt;= count; j++ {
+			if elements[j] &lt; elements[minimum] {
+				minimum = j
+			}
+		}
+		// Swap out elements
+		elements[i], elements[minimum] = elements[minimum], elements[i]
+	}
+}
+</code></pre>
+<h4><a class="header" href="#selection-sort-test-run" id="selection-sort-test-run">Selection Sort Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/sortingAlgorithms/selectionsort/selectionsort_test.go">Test</a></p>
+<h1><a class="header" href="#algorithms-workshop---search-algorithms" id="algorithms-workshop---search-algorithms">Algorithms Workshop - Search Algorithms</a></h1>
+<h2><a class="header" href="#search-algorithm-definition" id="search-algorithm-definition">Search Algorithm Definition</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Search_algorithm">Search Algorithm (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a search algorithm is any algorithm which solves the search problem, namely, to retrieve information stored within some data structure, or calculated in the search space of a problem domain, either with discrete or continuous values. Specific applications of search algorithms include:</p>
+</blockquote>
+<blockquote>
+<p>Problems in combinatorial optimization, such as:</p>
+<ul>
+<li>The vehicle routing problem, a form of shortest path problem</li>
+<li>The knapsack problem: Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.</li>
+<li>The nurse scheduling problem</li>
+<li>Problems in constraint satisfaction, such as:</li>
+<li>The map coloring problem</li>
+<li>Filling in a sudoku or crossword puzzle</li>
+<li>In game theory and especially combinatorial game theory, choosing the best move to make next</li>
+<li>Finding a combination or password from the whole set of possibilities</li>
+<li>Factoring an integer (an important problem in cryptography)</li>
+<li>Optimizing an industrial process, such as a chemical reaction, by changing the parameters of the process</li>
+<li>Retrieving a record from a database</li>
+<li>Finding the maximum or minimum value in a list or array</li>
+<li>Checking to see if a given value is present in a set of values</li>
+</ul>
+</blockquote>
+<h2><a class="header" href="#linear-search-algorithm" id="linear-search-algorithm">Linear Search Algorithm</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Linear_search">Linear Search (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a linear search or sequential search is a method for finding an element within a list. It sequentially checks each element of the list until a match is found or the whole list has been searched.</p>
+</blockquote>
+<h4><a class="header" href="#linear-search-basic-algorithm" id="linear-search-basic-algorithm">Linear Search Basic Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Linear_search#Basic_algorithm">Basic Algorithm</a></p>
+<p><img src="./images/linear_search_algorithm.png" alt="Linear Search" /></p>
+<h4><a class="header" href="#linear-search-implementation" id="linear-search-implementation">Linear Search Implementation</a></h4>
+<pre><code class="language-go">package linearsearch
+
+func search(elements []int, searchElem int) int {
+	for index, element := range elements {
+		if element == searchElem {
+			return index
+		}
+	}
+	return -1
+}
+</code></pre>
+<h4><a class="header" href="#linear-search-test" id="linear-search-test">Linear Search Test</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/searchingAlgorithms/linearsearch/linearsearch_test.go">Linear Search Test</a></p>
+<h2><a class="header" href="#binary-search-algorithm" id="binary-search-algorithm">Binary Search Algorithm</a></h2>
+<blockquote>
+<p>In computer science, binary search, also known as half-interval search, logarithmic search,or binary chop, is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array. If they are not equal, the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found. If the search ends with the remaining half being empty, the target is not in the array.</p>
+</blockquote>
+<h4><a class="header" href="#binary-search-leftmost-element-pseudocode" id="binary-search-leftmost-element-pseudocode">Binary Search Leftmost Element Pseudocode</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure_for_finding_the_leftmost_element">Leftmost Element Pseudocode</a></p>
+<pre><code>function binary_search_leftmost(A, n, T):
+    L := 0
+    R := n
+    while L &lt; R:
+        m := floor((L + R) / 2)
+        if A[m] &lt; T:
+            L := m + 1
+        else:
+            R := m
+    return L
+</code></pre>
+<h4><a class="header" href="#go-standard-library-implementation" id="go-standard-library-implementation">Go standard library implementation</a></h4>
+<p>The <a href="https://pkg.go.dev/sort#Search">sort.Search</a> implements the leftmost element procedure for the Binary Search Algorithm:</p>
+<pre><code class="language-go">// Search uses binary search to find and return the smallest index i
+// in [0, n) at which f(i) is true, assuming that on the range [0, n),
+// f(i) == true implies f(i+1) == true. That is, Search requires that
+// f is false for some (possibly empty) prefix of the input range [0, n)
+// and then true for the (possibly empty) remainder; Search returns
+// the first true index. If there is no such index, Search returns n.
+// (Note that the &quot;not found&quot; return value is not -1 as in, for instance,
+// strings.Index.)
+// Search calls f(i) only for i in the range [0, n).
+//
+// A common use of Search is to find the index i for a value x in
+// a sorted, indexable data structure such as an array or slice.
+// In this case, the argument f, typically a closure, captures the value
+// to be searched for, and how the data structure is indexed and
+// ordered.
+//
+// For instance, given a slice data sorted in ascending order,
+// the call Search(len(data), func(i int) bool { return data[i] &gt;= 23 })
+// returns the smallest index i such that data[i] &gt;= 23. If the caller
+// wants to find whether 23 is in the slice, it must test data[i] == 23
+// separately.
+//
+// Searching data sorted in descending order would use the &lt;=
+// operator instead of the &gt;= operator.
+//
+// To complete the example above, the following code tries to find the value
+// x in an integer slice data sorted in ascending order:
+//
+//	x := 23
+//	i := sort.Search(len(data), func(i int) bool { return data[i] &gt;= x })
+//	if i &lt; len(data) &amp;&amp; data[i] == x {
+//		// x is present at data[i]
+//	} else {
+//		// x is not present in data,
+//		// but i is the index where it would be inserted.
+//	}
+//
+// As a more whimsical example, this program guesses your number:
+//
+//	func GuessingGame() {
+//		var s string
+//		fmt.Printf(&quot;Pick an integer from 0 to 100.\n&quot;)
+//		answer := sort.Search(100, func(i int) bool {
+//			fmt.Printf(&quot;Is your number &lt;= %d? &quot;, i)
+//			fmt.Scanf(&quot;%s&quot;, &amp;s)
+//			return s != &quot;&quot; &amp;&amp; s[0] == 'y'
+//		})
+//		fmt.Printf(&quot;Your number is %d.\n&quot;, answer)
+//	}
+//
+func Search(n int, f func(int) bool) int {
+	// Define f(-1) == false and f(n) == true.
+	// Invariant: f(i-1) == false, f(j) == true.
+	i, j := 0, n
+	for i &lt; j {
+		h := int(uint(i+j) &gt;&gt; 1) // avoid overflow when computing h
+		// i ≤ h &lt; j
+		if !f(h) {
+			i = h + 1 // preserves f(i-1) == false
+		} else {
+			j = h // preserves f(j) == true
+		}
+	}
+	// i == j, f(i-1) == false, and f(j) (= f(i)) == true  =&gt;  answer is i.
+	return i
+}
+</code></pre>
+<h4><a class="header" href="#binary-search-test" id="binary-search-test">Binary Search Test</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/searchingAlgorithms/binarysearch/binary_test.go">Binary Search Test</a></p>
+<h1><a class="header" href="#algorithms-workshop---graph-algorithms" id="algorithms-workshop---graph-algorithms">Algorithms Workshop - Graph Algorithms</a></h1>
+<h2><a class="header" href="#graph-theory" id="graph-theory">Graph Theory</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Graph_theory">Graph theory (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In mathematics, graph theory is the study of graphs, which are mathematical structures used to model pairwise relations between objects. A graph in this context is made up of vertices (also called nodes or points) which are connected by edges (also called links or lines). A distinction is made between undirected graphs, where edges link two vertices symmetrically, and directed graphs, where edges link two vertices asymmetrically; see Graph (discrete mathematics) for more detailed definitions and for other variations in the types of graph that are commonly considered. Graphs are one of the prime objects of study in discrete mathematics.</p>
+</blockquote>
+<h2><a class="header" href="#depth-first-search-algorithm" id="depth-first-search-algorithm">Depth-first search algorithm</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Depth-first_search">DFS (Wikipedia Definition)</a></p>
+<blockquote>
+<p>Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along each branch before backtracking.</p>
+</blockquote>
+<h4><a class="header" href="#depth-first-search-recursive-pseudocode" id="depth-first-search-recursive-pseudocode">Depth-first search recursive pseudocode</a></h4>
+<pre><code>procedure DFS(G, v) is
+    label v as discovered
+    for all directed edges from v to w that are in G.adjacentEdges(v) do
+        if vertex w is not labeled as discovered then
+            recursively call DFS(G, w)
+</code></pre>
+<h4><a class="header" href="#depth-first-search-simple-implementation" id="depth-first-search-simple-implementation">Depth-first search simple implementation</a></h4>
+<pre><code class="language-go">package depthfirstsearch
+
+type Node struct {
+	Value string
+	Left  *Node
+	Right *Node
+}
+
+func (n *Node) Search(f func(*Node)) {
+	if n == nil {
+		return
+	}
+	n.Left.Search(f)
+	f(n)
+	n.Right.Search(f)
+}
+
+func (n *Node) Insert(v string) {
+	if v &lt; n.Value {
+		if n.Left == nil {
+			n.Left = &amp;Node{
+				Value: v,
+			}
+		} else {
+			n.Left.Insert(v)
+		}
+	} else {
+		if n.Right == nil {
+			n.Right = &amp;Node{
+				Value: v,
+			}
+		} else {
+			n.Right.Insert(v)
+		}
+	}
+}
+</code></pre>
+<h4><a class="header" href="#depth-first-search-test-run" id="depth-first-search-test-run">Depth-first search Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/graphAlgorithms/depthfirstsearch/depthfirstsearch_test.go">Depth-first Search Test</a></p>
+<h2><a class="header" href="#social-graph" id="social-graph">Social Graph</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Social_graph">Social Graph (Wikipedia Definition)</a></p>
+<blockquote>
+<p>The social graph is a graph that represents social relations between entities. In short, it is a model or representation of a social network, where the word graph has been taken from graph theory. The social graph has been referred to as &quot;the global mapping of everybody and how they're related&quot;.</p>
+</blockquote>
+<h4><a class="header" href="#social-graph-sample-implementation" id="social-graph-sample-implementation">Social Graph Sample Implementation</a></h4>
+<pre><code class="language-go">package networkgraph
+
+type Graph struct {
+	Size  int
+	Links [][]Link
+}
+
+type Link struct {
+	VertexA int
+	VertexB int
+	Weight  int
+}
+
+func (g Graph) New(num int) Graph {
+	g.Size = num
+	g.Links = make([][]Link, num)
+	return g
+}
+
+func (g *Graph) Add(vertexA int, vertexB int, weight int) {
+	g.Links[vertexA] = append(
+		g.Links[vertexA],
+		Link{
+			VertexA: vertexA,
+			VertexB: vertexB,
+			Weight:  weight,
+		},
+	)
+}
+</code></pre>
+<h4><a class="header" href="#social-graph-test-run" id="social-graph-test-run">Social Graph Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/graphAlgorithms/networkgraph/networkgraph_test.go">Social Graph Test</a></p>
+<h1><a class="header" href="#algorithms-workshop---string-algorithms" id="algorithms-workshop---string-algorithms">Algorithms Workshop - String Algorithms</a></h1>
+<h2><a class="header" href="#string-definition-in-computer-science" id="string-definition-in-computer-science">String Definition in Computer Science</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/String_%28computer_science%29">Strings (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer programming, a string is traditionally a sequence of characters, either as a literal constant or as some kind of variable. The latter may allow its elements to be mutated and the length changed, or it may be fixed (after creation). A string is generally considered as a data type and is often implemented as an array data structure of bytes (or words) that stores a sequence of elements, typically characters, using some character encoding. String may also denote more general arrays or other sequence (or list) data types and structures.</p>
+</blockquote>
+<blockquote>
+<p>Depending on the programming language and precise data type used, a variable declared to be a string may either cause storage in memory to be statically allocated for a predetermined maximum length or employ dynamic allocation to allow it to hold a variable number of elements.</p>
+</blockquote>
+<h2><a class="header" href="#types-of-string-algorithms" id="types-of-string-algorithms">Types of String Algorithms</a></h2>
+<ul>
+<li>
+<p>String Searching</p>
+<ul>
+<li>Brute Force String Search</li>
+<li>Deterministic Finite Automaton (DFA) Search</li>
+<li><a href="https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm">Knuth Morris Pratt Algorithms</a></li>
+</ul>
+</li>
+<li>
+<p>String Sorting</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/American_flag_sort">American Flag Sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Burstsort">Burst Sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multi-key_quicksort">Multi-key quicksort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_sort">Radix sort</a></li>
+</ul>
+</li>
+<li>
+<p>String Matching</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Bitap_algorithm">Bitap Algorithm</a></li>
+</ul>
+</li>
+<li>
+<p>String Collation</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Unicode_collation_algorithm">Unicode Collation Algorithm</a></li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#brute-force-string-searching-algorithm" id="brute-force-string-searching-algorithm">Brute Force String Searching Algorithm</a></h2>
+<pre><code class="language-go">package brutesearch
+
+func search(text string, pattern string) int {
+	var index int
+	for i, ch := range text {
+		if string(ch) == pattern {
+			index = i
+		}
+	}
+	return index
+}
+</code></pre>
+<p>This is a naive search implementation</p>
+<h4><a class="header" href="#rabin-karp-golang-source-code" id="rabin-karp-golang-source-code">Rabin Karp Golang Source Code</a></h4>
+<pre><code class="language-go">// Index returns the index of the first instance of substr in s, or -1 if substr is not present in s.
+func Index(s, substr string) int {
+	n := len(substr)
+	switch {
+	case n == 0:
+		return 0
+	case n == 1:
+		return IndexByte(s, substr[0])
+	case n == len(s):
+		if substr == s {
+			return 0
+		}
+		return -1
+	case n &gt; len(s):
+		return -1
+	case n &lt;= bytealg.MaxLen:
+		// Use brute force when s and substr both are small
+		if len(s) &lt;= bytealg.MaxBruteForce {
+			return bytealg.IndexString(s, substr)
+		}
+		c0 := substr[0]
+		c1 := substr[1]
+		i := 0
+		t := len(s) - n + 1
+		fails := 0
+		for i &lt; t {
+			if s[i] != c0 {
+				// IndexByte is faster than bytealg.IndexString, so use it as long as
+				// we're not getting lots of false positives.
+				o := IndexByte(s[i:t], c0)
+				if o &lt; 0 {
+					return -1
+				}
+				i += o
+			}
+			if s[i+1] == c1 &amp;&amp; s[i:i+n] == substr {
+				return i
+			}
+			fails++
+			i++
+			// Switch to bytealg.IndexString when IndexByte produces too many false positives.
+			if fails &gt; bytealg.Cutover(i) {
+				r := bytealg.IndexString(s[i:], substr)
+				if r &gt;= 0 {
+					return r + i
+				}
+				return -1
+			}
+		}
+		return -1
+	}
+	c0 := substr[0]
+	c1 := substr[1]
+	i := 0
+	t := len(s) - n + 1
+	fails := 0
+	for i &lt; t {
+		if s[i] != c0 {
+			o := IndexByte(s[i:t], c0)
+			if o &lt; 0 {
+				return -1
+			}
+			i += o
+		}
+		if s[i+1] == c1 &amp;&amp; s[i:i+n] == substr {
+			return i
+		}
+		i++
+		fails++
+		if fails &gt;= 4+i&gt;&gt;4 &amp;&amp; i &lt; t {
+			// See comment in ../bytes/bytes_generic.go.
+			j := indexRabinKarp(s[i:], substr)
+			if j &lt; 0 {
+				return -1
+			}
+			return i + j
+		}
+	}
+	return -1
+}
+
+func indexRabinKarp(s, substr string) int {
+	// Rabin-Karp search
+	hashss, pow := hashStr(substr)
+	n := len(substr)
+	var h uint32
+	for i := 0; i &lt; n; i++ {
+		h = h*primeRK + uint32(s[i])
+	}
+	if h == hashss &amp;&amp; s[:n] == substr {
+		return 0
+	}
+	for i := n; i &lt; len(s); {
+		h *= primeRK
+		h += uint32(s[i])
+		h -= pow * uint32(s[i-n])
+		i++
+		if h == hashss &amp;&amp; s[i-n:i] == substr {
+			return i - n
+		}
+	}
+	return -1
+}
+// hashStr returns the hash and the appropriate multiplicative
+// factor for use in Rabin-Karp algorithm.
+func hashStr(sep string) (uint32, uint32) {
+	hash := uint32(0)
+	for i := 0; i &lt; len(sep); i++ {
+		hash = hash*primeRK + uint32(sep[i])
+	}
+	var pow, sq uint32 = 1, primeRK
+	for i := len(sep); i &gt; 0; i &gt;&gt;= 1 {
+		if i&amp;1 != 0 {
+			pow *= sq
+		}
+		sq *= sq
+	}
+	return hash, pow
+}
+</code></pre>
+<h4><a class="header" href="#string-search-test-run" id="string-search-test-run">String Search Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/stringAlgorithms/brutesearch/search_test.go">String Search Test</a></p>
+<h1><a class="header" href="#algorithms-workshop---linear-programming" id="algorithms-workshop---linear-programming">Algorithms Workshop - Linear Programming</a></h1>
+<h2><a class="header" href="#linear-programming-definition" id="linear-programming-definition">Linear Programming Definition</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Linear_programming">Linear Programming (Wikipedia Definition)</a></p>
+<blockquote>
+<p>Linear programming (LP, also called linear optimization) is a method to achieve the best outcome (such as maximum profit or lowest cost) in a mathematical model whose requirements are represented by linear relationships. Linear programming is a special case of mathematical programming (also known as mathematical optimization).</p>
+</blockquote>
+<blockquote>
+<p>More formally, linear programming is a technique for the optimization of a linear objective function, subject to linear equality and linear inequality constraints. Its feasible region is a convex polytope, which is a set defined as the intersection of finitely many half spaces, each of which is defined by a linear inequality. Its objective function is a real-valued affine (linear) function defined on this polyhedron. A linear programming algorithm finds a point in the polytope where this function has the smallest (or largest) value if such a point exists.</p>
+</blockquote>
+<h2><a class="header" href="#linear-programming-algorithms" id="linear-programming-algorithms">Linear Programming Algorithms</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Simplex_algorithm">Simplex Algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Criss-cross_algorithm">Criss-cross Algorithm</a></li>
+</ul>
+<h4><a class="header" href="#simplex-algorithm" id="simplex-algorithm">Simplex Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Simplex_algorithm">Simplex Algorith (Wikipedia Definition)</a></p>
+<blockquote>
+<p>The name of the algorithm is derived from the concept of a simplex and was suggested by T. S. Motzkin. Simplices are not actually used in the method, but one interpretation of it is that it operates on simplicial cones, and these become proper simplices with an additional constraint.The simplicial cones in question are the corners (i.e., the neighborhoods of the vertices) of a geometric object called a polytope. The shape of this polytope is defined by the constraints applied to the objective function.</p>
+</blockquote>
+<h6><a class="header" href="#algorithmic-steps" id="algorithmic-steps">Algorithmic Steps</a></h6>
+<p><a href="https://en.wikipedia.org/wiki/Simplex_algorithm#Algorithm">Algorithm Steps (Wikipedia)</a></p>
+<h4><a class="header" href="#criss-cross-algorithm" id="criss-cross-algorithm">Criss-cross Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Criss-cross_algorithm">Criss-cross Algorithm (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In mathematical optimization, the criss-cross algorithm is any of a family of algorithms for linear programming. Variants of the criss-cross algorithm also solve more general problems with linear inequality constraints and nonlinear objective functions; there are criss-cross algorithms for linear-fractional programming problems, quadratic-programming problems, and linear complementarity problems.</p>
+</blockquote>
+<h1><a class="header" href="#algorithms-workshop---dynamic-programming" id="algorithms-workshop---dynamic-programming">Algorithms Workshop - Dynamic Programming</a></h1>
+<h2><a class="header" href="#dynamic-programming-definition" id="dynamic-programming-definition">Dynamic Programming Definition</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Dynamic_programming">Dynamic Programming (Wikipedia Definition)</a></p>
+<blockquote>
+<p>Dynamic programming is both a mathematical optimization method and a computer programming method. The method was developed by Richard Bellman in the 1950s and has found applications in numerous fields, from aerospace engineering to economics.</p>
+</blockquote>
+<blockquote>
+<p>In both contexts it refers to simplifying a complicated problem by breaking it down into simpler sub-problems in a recursive manner. While some decision problems cannot be taken apart this way, decisions that span several points in time do often break apart recursively. Likewise, in computer science, if a problem can be solved optimally by breaking it into sub-problems and then recursively finding the optimal solutions to the sub-problems, then it is said to have optimal substructure.</p>
+</blockquote>
+<h2><a class="header" href="#dynamic-programming-algorithms-and-problems" id="dynamic-programming-algorithms-and-problems">Dynamic Programming Algorithms and Problems</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's Algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_sequence">Fibonacci Numbers and Sequence</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">Tower of Hanoi</a></li>
+</ul>
+<h4><a class="header" href="#dijkstras-algorithm" id="dijkstras-algorithm">Dijkstra's Algorithm</a></h4>
+<blockquote>
+<p>Dijkstra's algorithm (or Dijkstra's Shortest Path First algorithm, SPF algorithm) is an algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks. It was conceived by computer scientist Edsger W. Dijkstra in 1956 and published three years later.</p>
+</blockquote>
+<blockquote>
+<p>The algorithm exists in many variants. Dijkstra's original algorithm found the shortest path between two given nodes, but a more common variant fixes a single node as the &quot;source&quot; node and finds shortest paths from the source to all other nodes in the graph, producing a shortest-path tree.</p>
+</blockquote>
+<h6><a class="header" href="#dijkstra-algorithm-pseudocode" id="dijkstra-algorithm-pseudocode">Dijkstra Algorithm Pseudocode</a></h6>
+<pre><code>function Dijkstra(Graph, source):
+
+    create vertex set Q
+
+    for each vertex v in Graph:            
+        dist[v] ← INFINITY                 
+        prev[v] ← UNDEFINED                
+        add v to Q                     
+    dist[source] ←                        
+    
+    while Q is not empty:
+        u ← vertex in Q with min dist[u]   
+                                            
+        remove u from Q
+        
+        for each neighbor v of u:           // only v that are still in Q
+            alt ← dist[u] + length(u, v)
+            if alt &lt; dist[v]:              
+                dist[v] ← alt
+                prev[v] ← u
+
+    return dist[], prev[]
+</code></pre>
+<h5><a class="header" href="#dijkstra-golang-implementation" id="dijkstra-golang-implementation">Dijkstra Golang Implementation</a></h5>
+<p>Check out this blog post on <a href="https://deployeveryday.com/2019/10/16/dijkstra-algorithm-golang.html">Dijkstra Algorithm</a></p>
+<h1><a class="header" href="#algorithms-workshop---numerical-analysis" id="algorithms-workshop---numerical-analysis">Algorithms Workshop - Numerical Analysis</a></h1>
+<h2><a class="header" href="#numerical-analysis-definition" id="numerical-analysis-definition">Numerical Analysis Definition</a></h2>
+<blockquote>
+<p>Numerical analysis is the study of algorithms that use numerical approximation (as opposed to symbolic manipulations) for the problems of mathematical analysis (as distinguished from discrete mathematics). Numerical analysis naturally finds application in all fields of engineering and the physical sciences, but in the 21st century also the life sciences, social sciences, medicine, business and even the arts have adopted elements of scientific computations. The growth in computing power has revolutionized the use of realistic mathematical models in science and engineering, and subtle numerical analysis is required to implement these detailed models of the world. For example, ordinary differential equations appear in celestial mechanics (predicting the motions of planets, stars and galaxies); numerical linear algebra is important for data analysis; stochastic differential equations and Markov chains are essential in simulating living cells for medicine and biology.</p>
+</blockquote>
+<h2><a class="header" href="#numerical-analysis-topics" id="numerical-analysis-topics">Numerical Analysis Topics</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/List_of_numerical_analysis_topics">List of Numerical Analysis Topics via Wikipedia</a></p>
+<h2><a class="header" href="#netlib" id="netlib">Netlib</a></h2>
+<blockquote>
+<p>Netlib is a repository of software for scientific computing maintained by AT&amp;T, Bell Laboratories, the University of Tennessee and Oak Ridge National Laboratory. Netlib comprises many separate programs and libraries. Most of the code is written in C and Fortran, with some programs in other languages.</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Netlib">Netlib</a></p>
+<h2><a class="header" href="#gnu-scientific-library" id="gnu-scientific-library">GNU Scientific Library</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/GNU_Scientific_Library">GNU Scientific Library</a></p>
+<blockquote>
+<p>The GNU Scientific Library (or GSL) is a software library for numerical computations in applied mathematics and science. The GSL is written in C; wrappers are available for other programming languages. The GSL is part of the GNU Project and is distributed under the GNU General Public License.</p>
+</blockquote>
+<h4><a class="header" href="#install-gnu-scientific-library-mac-os-x" id="install-gnu-scientific-library-mac-os-x">Install GNU Scientific Library Mac OS X</a></h4>
+<pre><code class="language-bash">brew install gsl
+</code></pre>
+<h4><a class="header" href="#bessel-function-code" id="bessel-function-code">Bessel Function Code</a></h4>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;gsl/gsl_sf_bessel.h&gt;
+
+int main(void)
+{
+  double x = 5.0;
+  double y = gsl_sf_bessel_J0(x);
+  printf(&quot;J0(%g) = %.18e\n&quot;, x, y);
+  return 0;
+}
+</code></pre>
+<h6><a class="header" href="#gcc-compilation-with-library" id="gcc-compilation-with-library">gcc compilation with library</a></h6>
+<p><img src="./images/gnulibrary.png" alt="GNU Library Screenshot" /></p>
+<h4><a class="header" href="#computing-platforms" id="computing-platforms">Computing Platforms</a></h4>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/MATLAB">MatLab</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_Octave">GNU Octave</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wolfram_Mathematica">Wolfram Mathematica</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

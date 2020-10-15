@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Data Structures - Algorithms Workshop</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> README</a></li><li class="chapter-item expanded "><a href="pseudocode.html"><strong aria-hidden="true">2.</strong> Pseudocode</a></li><li class="chapter-item expanded "><a href="big-o-notation.html"><strong aria-hidden="true">3.</strong> Big O Notation</a></li><li class="chapter-item expanded "><a href="analysis-of-algorithms.html"><strong aria-hidden="true">4.</strong> Analysis of Algorithms</a></li><li class="chapter-item expanded "><a href="the-halting-problem.html"><strong aria-hidden="true">5.</strong> The Halting Problem</a></li><li class="chapter-item expanded "><a href="math-for-algorithms.html"><strong aria-hidden="true">6.</strong> Math for Algorithms</a></li><li class="chapter-item expanded "><a href="data-structures.html" class="active"><strong aria-hidden="true">7.</strong> Data Structures</a></li><li class="chapter-item expanded "><a href="sorting-algorithms.html"><strong aria-hidden="true">8.</strong> Sorting Algorithms</a></li><li class="chapter-item expanded "><a href="searching-algorithms.html"><strong aria-hidden="true">9.</strong> Searching Algorithms</a></li><li class="chapter-item expanded "><a href="graph-algorithms.html"><strong aria-hidden="true">10.</strong> Graph Algorithms</a></li><li class="chapter-item expanded "><a href="string-algorithms.html"><strong aria-hidden="true">11.</strong> String Algorithms</a></li><li class="chapter-item expanded "><a href="linear-programming.html"><strong aria-hidden="true">12.</strong> Linear Programming</a></li><li class="chapter-item expanded "><a href="dynamic-programming.html"><strong aria-hidden="true">13.</strong> Dynamic Programming</a></li><li class="chapter-item expanded "><a href="numerical_analysis.html"><strong aria-hidden="true">14.</strong> Numerical Analysis</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithms Workshop</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#algorithms-workshop---data-structures" id="algorithms-workshop---data-structures">Algorithms Workshop - Data Structures</a></h1>
+<h2><a class="header" href="#definition-of-a-data-structure" id="definition-of-a-data-structure">Definition of a Data Structure</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Data_structure">Data Structure (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a data structure is a data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.</p>
+</blockquote>
+<h2><a class="header" href="#types-of-data-structures" id="types-of-data-structures">Types of Data Structures</a></h2>
+<h4><a class="header" href="#linear-data-structures" id="linear-data-structures">Linear Data Structures</a></h4>
+<p>A data structure is linear if its elements form a sequence:</p>
+<ul>
+<li>Lists</li>
+<li>Sets</li>
+<li>Tuples</li>
+<li>Queues</li>
+<li>Stacks</li>
+</ul>
+<h2><a class="header" href="#nonlinear-data-structures" id="nonlinear-data-structures">NonLinear Data Structures</a></h2>
+<p>A data structure is non-linear when an element is connected to many other elements</p>
+<ul>
+<li>Trees</li>
+<li>Tables</li>
+<li>Hash</li>
+<li>Containers</li>
+</ul>
+<h2><a class="header" href="#dynamic-data-structures" id="dynamic-data-structures">Dynamic Data Structures</a></h2>
+<ul>
+<li>Dictionaries</li>
+<li>TreeSets</li>
+<li>Sequences</li>
+</ul>
+<h2><a class="header" href="#set-operations" id="set-operations">Set Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Set_%28abstract_data_type%29">Set (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a set is an abstract data type that can store unique values, without any particular order. It is a computer implementation of the mathematical concept of a finite set. Unlike most other collection types, rather than retrieving a specific element from a set, one typically tests a value for membership in a set.</p>
+</blockquote>
+<h4><a class="header" href="#union" id="union">Union</a></h4>
+<p>The union of s and t returns all the elements of set s and set t</p>
+<h4><a class="header" href="#intersection" id="intersection">Intersection</a></h4>
+<p>The intersection of s and t return the all the elements that belong to A and to B</p>
+<h4><a class="header" href="#add" id="add">Add</a></h4>
+<p>Add is a method that adds an element to the set</p>
+<h4><a class="header" href="#remove" id="remove">Remove</a></h4>
+<p>Remove is a method that removes an element from the set</p>
+<h4><a class="header" href="#set-implementation" id="set-implementation">Set Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/set/set.go">Set Implementation</a></p>
+<h4><a class="header" href="#set-test-run" id="set-test-run">Set Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/set/set_test.go">Set Tests</a></p>
+<h2><a class="header" href="#stack-operations" id="stack-operations">Stack Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29">Stack (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a stack is an abstract data type that serves as a collection of elements, with two main principal operations:
+push, which adds an element to the collection, and
+pop, which removes the most recently added element that was not yet removed.</p>
+</blockquote>
+<h4><a class="header" href="#push" id="push">Push</a></h4>
+<p>Add an element to the stack</p>
+<h4><a class="header" href="#pop" id="pop">Pop</a></h4>
+<p>Remove most recent element from the stack and return it.</p>
+<h4><a class="header" href="#stack-implementation" id="stack-implementation">Stack Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/stack/stack.go">Stack Implementation</a></p>
+<h4><a class="header" href="#list-test-run" id="list-test-run">List Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/stack/stack_test.go">Stack Tests</a></p>
+<h2><a class="header" href="#list-operations" id="list-operations">List Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/List_%28abstract_data_type%29">List (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a list or sequence is an abstract data type that represents a countable number of ordered values, where the same value may occur more than once. An instance of a list is a computer representation of the mathematical concept of a tuple or finite sequence; the (potentially) infinite analog of a list is a stream. Lists are a basic example of containers, as they contain other values. If the same value occurs multiple times, each occurrence is considered a distinct item.</p>
+</blockquote>
+<h4><a class="header" href="#append" id="append">Append</a></h4>
+<p>Operation to append an element to a list</p>
+<h4><a class="header" href="#prepend" id="prepend">Prepend</a></h4>
+<p>Operation to prepend an element to a list</p>
+<h4><a class="header" href="#head" id="head">Head</a></h4>
+<p>Operation to find the first element of a list</p>
+<h4><a class="header" href="#empty" id="empty">Empty</a></h4>
+<p>Operation to determine whether or not a list is empty</p>
+<h4><a class="header" href="#doubly-linkedlist-implementation" id="doubly-linkedlist-implementation">Doubly LinkedList Implementation</a></h4>
+<p><a href="https://github.com/golang/go/blob/go1.15.2/src/container/list/list.go">Doubly LinkedList Implementation</a></p>
+<h4><a class="header" href="#singly-linkedlist-implementation" id="singly-linkedlist-implementation">Singly LinkedList Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/linkedlist/linkedlist.go">Singly LinkedList Implementation</a></p>
+<h4><a class="header" href="#singly-list-test-run" id="singly-list-test-run">Singly List Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/list/list_test.go">List Tests</a></p>
+<h2><a class="header" href="#queue-operations" id="queue-operations">Queue Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Queue_%28abstract_data_type%29">Queue (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a queue is a collection of entities that are maintained in a sequence and can be modified by the addition of entities at one end of the sequence and the removal of entities from the other end of the sequence. By convention, the end of the sequence at which elements are added is called the back, tail, or rear of the queue, and the end at which elements are removed is called the head or front of the queue, analogously to the words used when people line up to wait for goods or services.</p>
+</blockquote>
+<h4><a class="header" href="#new" id="new">New</a></h4>
+<p>Should return a new queue</p>
+<h4><a class="header" href="#enqueue" id="enqueue">Enqueue</a></h4>
+<p>Operation should add item to the queue</p>
+<h4><a class="header" href="#dequeue" id="dequeue">Dequeue</a></h4>
+<p>Operation should remove and return first item added to the queue in FIFO order</p>
+<h4><a class="header" href="#queue-implementation" id="queue-implementation">Queue Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/queue/queue.go">Queue Implementation</a></p>
+<h4><a class="header" href="#queue-test-run" id="queue-test-run">Queue Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/queue/queue_test.go">Queue Test Run</a></p>
+<h2><a class="header" href="#tree-operations" id="tree-operations">Tree Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Tree_%28data_structure%29">Tree (Wikipedia Definition)</a></p>
+<blockquote>
+<p>In computer science, a tree is a widely used abstract data type that simulates a hierarchical tree structure, with a root value and subtrees of children with a parent node, represented as a set of linked nodes.</p>
+</blockquote>
+<blockquote>
+<p>A tree data structure can be defined recursively as a collection of nodes (starting at a root node), where each node is a data structure consisting of a value, together with a list of references to nodes (the &quot;children&quot;), with the constraints that no reference is duplicated, and none points to the root.</p>
+</blockquote>
+<h2><a class="header" href="#table-operations" id="table-operations">Table Operations</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Table_%28information%29">Table (Wikipedia Definition)</a></p>
+<blockquote>
+<p>A table is an arrangement of data in rows and columns, or possibly in a more complex structure. Tables are widely used in communication, research, and data analysis. Tables appear in print media, handwritten notes, computer software, architectural ornamentation, traffic signs, and many other places. The precise conventions and terminology for describing tables vary depending on the context. Further, tables differ significantly in variety, structure, flexibility, notation, representation and use. In books and technical articles, tables are typically presented apart from the main text in numbered and captioned floating blocks.</p>
+</blockquote>
+<p>A Table has rows and columns</p>
+<h4><a class="header" href="#table-implementation" id="table-implementation">Table Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/table/table.go">Table Implementation</a></p>
+<h4><a class="header" href="#table-test-run" id="table-test-run">Table Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/table/table_test.go">Table Test Run</a></p>
+<h2><a class="header" href="#dictionary-operations" id="dictionary-operations">Dictionary Operations</a></h2>
+<p>A dictionary can be thought of as a set of key, value pairs. Dictionaries are often used in stoaring a set of data items.</p>
+<h4><a class="header" href="#dictionary-implementation" id="dictionary-implementation">Dictionary Implementation</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/dictionary/dictionary.go">Dictionary Implementation</a></p>
+<h4><a class="header" href="#dictionary-test-run" id="dictionary-test-run">Dictionary Test Run</a></h4>
+<p><a href="https://github.com/jbelmont/algorithms-workshop/blob/master/dataStructures/dictionary/dictionary_test.go">Dictionary Test Run</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="math-for-algorithms.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="sorting-algorithms.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="math-for-algorithms.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="sorting-algorithms.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

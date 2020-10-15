@@ -1,0 +1,386 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>README - Algorithms Workshop</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html" class="active"><strong aria-hidden="true">1.</strong> README</a></li><li class="chapter-item expanded "><a href="pseudocode.html"><strong aria-hidden="true">2.</strong> Pseudocode</a></li><li class="chapter-item expanded "><a href="big-o-notation.html"><strong aria-hidden="true">3.</strong> Big O Notation</a></li><li class="chapter-item expanded "><a href="analysis-of-algorithms.html"><strong aria-hidden="true">4.</strong> Analysis of Algorithms</a></li><li class="chapter-item expanded "><a href="the-halting-problem.html"><strong aria-hidden="true">5.</strong> The Halting Problem</a></li><li class="chapter-item expanded "><a href="math-for-algorithms.html"><strong aria-hidden="true">6.</strong> Math for Algorithms</a></li><li class="chapter-item expanded "><a href="data-structures.html"><strong aria-hidden="true">7.</strong> Data Structures</a></li><li class="chapter-item expanded "><a href="sorting-algorithms.html"><strong aria-hidden="true">8.</strong> Sorting Algorithms</a></li><li class="chapter-item expanded "><a href="searching-algorithms.html"><strong aria-hidden="true">9.</strong> Searching Algorithms</a></li><li class="chapter-item expanded "><a href="graph-algorithms.html"><strong aria-hidden="true">10.</strong> Graph Algorithms</a></li><li class="chapter-item expanded "><a href="string-algorithms.html"><strong aria-hidden="true">11.</strong> String Algorithms</a></li><li class="chapter-item expanded "><a href="linear-programming.html"><strong aria-hidden="true">12.</strong> Linear Programming</a></li><li class="chapter-item expanded "><a href="dynamic-programming.html"><strong aria-hidden="true">13.</strong> Dynamic Programming</a></li><li class="chapter-item expanded "><a href="numerical_analysis.html"><strong aria-hidden="true">14.</strong> Numerical Analysis</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithms Workshop</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#algorithms-workshop" id="algorithms-workshop">Algorithms Workshop</a></h1>
+<p>A workshop on Data Structures and Algorithms</p>
+<h2><a class="header" href="#sections" id="sections">Sections</a></h2>
+<ul>
+<li><a href="#definition-of-algorithms">Definition of Algorithm</a>
+<ul>
+<li><a href="#history-of-algorithms">History of Algorithms</a></li>
+<li><a href="#types-of-algorithms">Types of Algorithms</a></li>
+<li><a href="#types-of-data-structures">Types of Data Structures</a></li>
+</ul>
+</li>
+<li><a href="./pseudocode.html">Pseudocode</a></li>
+<li><a href="./big-o-notation.html">Big O Notation</a></li>
+<li><a href="./analysis-of-algorithms.html">Analysis of Algorithms</a></li>
+<li><a href="./the-halting-problem.html">The Halting Problem</a></li>
+<li><a href="./math-for-algorithms.html">Math for Algorithms</a></li>
+<li><a href="./data-structures.html">Data Structures</a></li>
+<li><a href="./sorting-algorithms.html">Sorting Algorithms</a></li>
+<li><a href="./searching-algorithms.html">Searching Algorithms</a></li>
+<li><a href="./graph-algorithms.html">Graph Algorithms</a></li>
+<li><a href="./string-algorithms.html">String Algorithms</a></li>
+<li><a href="./linear-programming.html">Linear Programming</a></li>
+<li><a href="./dynamic-programming.html">Dynamic Programming</a></li>
+</ul>
+<h2><a class="header" href="#definition-of-algorithms" id="definition-of-algorithms">Definition of Algorithms</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Algorithm">Algorithm Definition Wikipedia</a></p>
+<blockquote>
+<p>In mathematics and computer science, an algorithm (/ˈælɡərɪðəm/ (About this soundlisten)) is a finite sequence of well-defined, computer-implementable instructions, typically to solve a class of problems or to perform a computation. Algorithms are always unambiguous and are used as specifications for performing calculations, data processing, automated reasoning, and other tasks.</p>
+</blockquote>
+<p>Think of algorithms like a recipe in a cookbook. You follow the instructions in the recipe to make your dish.</p>
+<h2><a class="header" href="#history-of-algorithms" id="history-of-algorithms">History of Algorithms</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Timeline_of_algorithms">Timeline of Algorithms via Wikipedia</a></p>
+<p>According to Wikipedia the earliest known algorithm were developed by the Egyptians between 1700 - 2000 BC.</p>
+<p>This algorithm involved multiplying 2 numbers together.</p>
+<p>In 1600 BC, the Babylonians developed the earliest known algorithm on factorization.</p>
+<p>Usually in the university you are introduced to Euclid's Algorithm which was created by Euclid in 300 BC.</p>
+<p>Please read the Algorithm Timeline I linked above for a more complete timeline of Algorithms.</p>
+<h2><a class="header" href="#types-of-algorithms" id="types-of-algorithms">Types of Algorithms</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/List_of_algorithms">List of Algorithms</a></p>
+<p>Types of Algorithms:</p>
+<ul>
+<li>
+<p>Simple Recursive Algorithms</p>
+</li>
+<li>
+<p>Backtracking Algorithms</p>
+</li>
+<li>
+<p>Divide and conquer algorithms</p>
+</li>
+<li>
+<p>Dynamic programming algorithms</p>
+</li>
+<li>
+<p>Greedy algorithms</p>
+</li>
+<li>
+<p>Branch and bound algorithms</p>
+</li>
+<li>
+<p>Brute force algorithms</p>
+</li>
+<li>
+<p>Randomized algorithms</p>
+</li>
+</ul>
+<h4><a class="header" href="#definition-of-recursive-algorithm" id="definition-of-recursive-algorithm">Definition of Recursive Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Recursion_%28computer_science%29">Recursion (Wikipedia)</a></p>
+<blockquote>
+<p>In computer science, recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. Such problems can generally be solved by iteration, but this needs to identify and index the smaller instances at programming time. Recursion solves such recursive problems by using functions that call themselves from within their own code. The approach can be applied to many types of problems, and recursion is one of the central ideas of computer science.</p>
+</blockquote>
+<h6><a class="header" href="#example-of-recursion" id="example-of-recursion">Example of Recursion</a></h6>
+<pre><code class="language-go">func fibonacci(number int) int {
+	if number &lt;= 1 {
+		return number
+	}
+	return fibonacci(number-1) + fibonacci(number-2)
+}
+</code></pre>
+<p>Notice here that the fibonacci function is calling itself and had a base case to make sure that the program ends.</p>
+<h4><a class="header" href="#backtracking-algorithms" id="backtracking-algorithms">Backtracking Algorithms</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Backtracking">Backtracking</a></p>
+<blockquote>
+<p>Backtracking is a general algorithm for finding all (or some) solutions to some computational problems, notably constraint satisfaction problems, that incrementally builds candidates to the solutions, and abandons a candidate (&quot;backtracks&quot;) as soon as it determines that the candidate cannot possibly be completed to a valid solution.</p>
+</blockquote>
+<p>Please read more about the <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle">Eight Queens Puzzle</a> for a Backtracking Problem.</p>
+<h4><a class="header" href="#divide-and-conquer-algorithms" id="divide-and-conquer-algorithms">Divide and Conquer Algorithms</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm">Divide and Conquer Algorithms</a></p>
+<blockquote>
+<p>In computer science, divide and conquer is an algorithm design paradigm based on multi-branched recursion. A divide-and-conquer algorithm works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. The solutions to the sub-problems are then combined to give a solution to the original problem.</p>
+</blockquote>
+<p>We will look later on in the workshop for specific <em>Divide and Conquer Algorithms</em></p>
+<h4><a class="header" href="#dynamic-programming-algorithms" id="dynamic-programming-algorithms">Dynamic programming algorithms</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Dynamic_programming">Dynamic Programming</a></p>
+<blockquote>
+<p>Dynamic Programming (DP) is an algorithmic technique for solving an optimization problem by breaking it down into simpler subproblems and utilizing the fact that the optimal solution to the overall problem depends upon the optimal solution to its subproblems.</p>
+</blockquote>
+<p>An example of Dynamic Programming Algorithm is a Dijkstra's Shortest Path Algorithm:</p>
+<h6><a class="header" href="#pseudocode-example" id="pseudocode-example">Pseudocode Example</a></h6>
+<pre><code>function Dijkstra(Graph, source):
+    create vertex set Q
+
+    for each vertex v in Graph:             
+        dist[v] ← INFINITY                  
+        prev[v] ← UNDEFINED                 
+        add v to Q                      
+    dist[source] ←                        
+
+    while Q is not empty:
+        u ← vertex in Q with min dist[u]    
+                                            
+        remove u from Q 
+        
+        for each neighbor v of u:           // only v that are still in Q
+            alt ← dist[u] + length(u, v)
+            if alt &lt; dist[v]:               
+                dist[v] ← alt 
+                prev[v] ← u 
+
+    return dist[], prev[]
+</code></pre>
+<h4><a class="header" href="#greedy-algorithm" id="greedy-algorithm">Greedy Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Greedy_algorithm">Greedy Algorighm Wikipdia</a></p>
+<blockquote>
+<p>A greedy algorithm is any algorithm that follows the problem-solving heuristic of making the locally optimal choice at each stage. In many problems, a greedy strategy does not usually produce an optimal solution, but nonetheless a greedy heuristic may yield locally optimal solutions that approximate a globally optimal solution in a reasonable amount of time.</p>
+</blockquote>
+<h6><a class="header" href="#greedy-algorithm-example" id="greedy-algorithm-example">Greedy Algorithm Example</a></h6>
+<p><em>Prim's Algorithm</em></p>
+<p>Read more about <a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">Prim's Algorithm at Wikipedia</a></p>
+<h4><a class="header" href="#branch-and-bound-algorithms" id="branch-and-bound-algorithms">Branch and Bound Algorithms</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Branch_and_bound">Branch and Bound</a></p>
+<blockquote>
+<p>Branch and bound (BB, B&amp;B, or BnB) is an algorithm design paradigm for discrete and combinatorial optimization problems, as well as mathematical optimization. A branch-and-bound algorithm consists of a systematic enumeration of candidate solutions by means of state space search: the set of candidate solutions is thought of as forming a rooted tree with the full set at the root. The algorithm explores branches of this tree, which represent subsets of the solution set. Before enumerating the candidate solutions of a branch, the branch is checked against upper and lower estimated bounds on the optimal solution, and is discarded if it cannot produce a better solution than the best one found so far by the algorithm.</p>
+</blockquote>
+<h6><a class="header" href="#branch-and-bound-algorithm-example" id="branch-and-bound-algorithm-example">Branch and Bound Algorithm Example</a></h6>
+<p>The <a href="https://en.wikipedia.org/wiki/Knapsack_problem">Knapsack problem</a> is an example where you can use Branch and Bound Algorithm to solve.</p>
+<h4><a class="header" href="#brute-force-algorithm" id="brute-force-algorithm">Brute force Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Brute-force_search">Brute Force Search</a></p>
+<blockquote>
+<p>In computer science, brute-force search or exhaustive search, also known as generate and test, is a very general problem-solving technique and algorithmic paradigm that consists of systematically enumerating all possible candidates for the solution and checking whether each candidate satisfies the problem's statement.</p>
+</blockquote>
+<h4><a class="header" href="#randomized-algorithm" id="randomized-algorithm">Randomized Algorithm</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Randomized_algorithm">Randomized Algorithm</a></p>
+<blockquote>
+<p>A randomized algorithm is an algorithm that employs a degree of randomness as part of its logic. The algorithm typically uses uniformly random bits as an auxiliary input to guide its behavior, in the hope of achieving good performance in the &quot;average case&quot; over all possible choices of random bits. Formally, the algorithm's performance will be a random variable determined by the random bits; thus either the running time, or the output (or both) are random variables.</p>
+</blockquote>
+<h6><a class="header" href="#randomized-algorithm-example" id="randomized-algorithm-example">Randomized Algorithm Example</a></h6>
+<p>The <a href="https://en.wikipedia.org/wiki/Monte_Carlo_algorithm">Monte Carlo Algorithm</a> is an example of a Randomized Algorithm.</p>
+<h2><a class="header" href="#types-of-data-structures" id="types-of-data-structures">Types of Data Structures</a></h2>
+<p>Please checkout the <a href="https://en.wikipedia.org/wiki/List_of_data_structures">List of Data Structures Wikipedia</a> for a complete list of Data Structures by type.</p>
+<p>Common Data Structures:</p>
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Linked_list">Linked List</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Hash_table">Hash Table</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Binary_tree">Binary Tree</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Array_data_structure">Array</a></p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+                            <a rel="next" href="pseudocode.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+                    <a rel="next" href="pseudocode.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

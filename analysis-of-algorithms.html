@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Analysis of Algorithms - Algorithms Workshop</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> README</a></li><li class="chapter-item expanded "><a href="pseudocode.html"><strong aria-hidden="true">2.</strong> Pseudocode</a></li><li class="chapter-item expanded "><a href="big-o-notation.html"><strong aria-hidden="true">3.</strong> Big O Notation</a></li><li class="chapter-item expanded "><a href="analysis-of-algorithms.html" class="active"><strong aria-hidden="true">4.</strong> Analysis of Algorithms</a></li><li class="chapter-item expanded "><a href="the-halting-problem.html"><strong aria-hidden="true">5.</strong> The Halting Problem</a></li><li class="chapter-item expanded "><a href="math-for-algorithms.html"><strong aria-hidden="true">6.</strong> Math for Algorithms</a></li><li class="chapter-item expanded "><a href="data-structures.html"><strong aria-hidden="true">7.</strong> Data Structures</a></li><li class="chapter-item expanded "><a href="sorting-algorithms.html"><strong aria-hidden="true">8.</strong> Sorting Algorithms</a></li><li class="chapter-item expanded "><a href="searching-algorithms.html"><strong aria-hidden="true">9.</strong> Searching Algorithms</a></li><li class="chapter-item expanded "><a href="graph-algorithms.html"><strong aria-hidden="true">10.</strong> Graph Algorithms</a></li><li class="chapter-item expanded "><a href="string-algorithms.html"><strong aria-hidden="true">11.</strong> String Algorithms</a></li><li class="chapter-item expanded "><a href="linear-programming.html"><strong aria-hidden="true">12.</strong> Linear Programming</a></li><li class="chapter-item expanded "><a href="dynamic-programming.html"><strong aria-hidden="true">13.</strong> Dynamic Programming</a></li><li class="chapter-item expanded "><a href="numerical_analysis.html"><strong aria-hidden="true">14.</strong> Numerical Analysis</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithms Workshop</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#algorithms-workshop---analysis-of-algorithms" id="algorithms-workshop---analysis-of-algorithms">Algorithms Workshop - Analysis of Algorithms</a></h1>
+<h2><a class="header" href="#cost-model" id="cost-model">Cost Model</a></h2>
+<p>Cost Models rely on analysis of the actual execution time and the time required to perform an individual step.</p>
+<h2><a class="header" href="#orders-of-growth" id="orders-of-growth">Orders of Growth</a></h2>
+<p>An algorithm is said to show a growth rate on the order of a mathematical functon and can be constrained with an upper bound as we saw in the Big-O section of the workshop.</p>
+<h2><a class="header" href="#cost-analysis-1" id="cost-analysis-1">Cost Analysis 1</a></h2>
+<p><em>Sample Code:</em></p>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	var number [20]int
+
+	for n := 0; n &lt; 20; n++ {
+		number[n] = n + 100
+		fmt.Printf(&quot;Number[%d] = %d\n&quot;, n, number[n])
+	}
+}
+</code></pre>
+<p><img src="./images/cost_analysis.png" alt="cost analysis" /></p>
+<p>Notice in my laptop which is a MacBook 2015 with 2.2 GHz Intel Core i7 processor this program took 0.15s user seconds</p>
+<p>The computational time taken here is 20 * t and <em>t</em> is the time that it takes to add 2 integers and then update an array.</p>
+<p>The <em>t</em> value here will vary depending on the computer hardware.</p>
+<h4><a class="header" href="#analysis-of-program" id="analysis-of-program">Analysis of program</a></h4>
+<p>\( T(n) \; = \; \mathcal{O}(f(n)) \; \rightarrow  Linear Time Complexity \)</p>
+<h2><a class="header" href="#cost-analysis-2" id="cost-analysis-2">Cost Analysis 2</a></h2>
+<p><em>Sample Code:</em></p>
+<pre><code class="language-go">func quadraticComplexity(iteration int) int {
+	var computation int
+	for i := 1; i &lt;= iteration; i++ {
+		for j := 1; j &lt;= iteration; j++ {
+			computation = i * j
+			fmt.Println(computation)
+		}
+	}
+	return computation
+}
+</code></pre>
+<pre><code class="language-sh">time go test
+........................
+100
+PASS
+ok  	github.com/jbelmont/algorithms-workshop/analysis/quadratic	0.253s
+go test  0.38s user 0.28s system 100% cpu 0.655 total
+</code></pre>
+<h4><a class="header" href="#analysis-of-program-1" id="analysis-of-program-1">Analysis of program</a></h4>
+<p>\( T(n) \; = \mathcal{O}({n^2}) \; \rightarrow Quadratic \; Time \; Complexity \)</p>
+<h2><a class="header" href="#cost-analysis-3" id="cost-analysis-3">Cost Analysis 3</a></h2>
+<p><em>Sample Code:</em></p>
+<pre><code class="language-go">func cubicComplexity() int {
+	const iteration = 10
+	var threeDArr [iteration][iteration][iteration]int
+	var compute int
+	for i := 0; i &lt; iteration; i++ {
+		for j := 0; j &lt; iteration; j++ {
+			for k := 0; k &lt; iteration; k++ {
+				compute = (i + j) * k
+				threeDArr[i][j][k] = compute
+				fmt.Printf(&quot;Value in threeDArr[i][j][k] = %d\n&quot;, threeDArr[i][j][k])
+			}
+		}
+	}
+	return compute
+}
+</code></pre>
+<pre><code class="language-sh">time go test
+.............................................
+Value in threeDArr[i][j][k] = 162
+PASS
+ok      github.com/jbelmont/algorithms-workshop/analysis/cubic  0.288s
+go test  0.38s user 0.24s system 101% cpu 0.601 total
+</code></pre>
+<h4><a class="header" href="#analysis-of-program-2" id="analysis-of-program-2">Analysis of program</a></h4>
+<p>\( T(n) \; = \mathcal{O}({n^3}) \; \rightarrow \; Cubic  \)</p>
+<h2><a class="header" href="#cost-analysis-4" id="cost-analysis-4">Cost Analysis 4</a></h2>
+<p><em>Sample Code:</em></p>
+<pre><code class="language-go">package logarithmic
+
+import &quot;fmt&quot;
+
+type Tree struct {
+	LNode *Tree
+	Val   int
+	RNode *Tree
+}
+
+func (t *Tree) insert(val int) {
+	if t != nil {
+		if t.LNode == nil {
+			t.LNode = &amp;Tree{
+				nil, val, nil,
+			}
+		} else if t != nil &amp;&amp; t.RNode == nil {
+			t.RNode = &amp;Tree{
+				nil, val, nil,
+			}
+		} else {
+			if t.LNode != nil {
+				t.LNode.insert(val)
+			} else {
+				t.RNode.insert(val)
+			}
+		}
+	} else {
+		t = &amp;Tree{
+			nil, val, nil,
+		}
+	}
+}
+
+func printTree(t *Tree) {
+	if t != nil {
+		fmt.Printf(&quot;Tree value is %v\n&quot;, t.Val)
+		fmt.Printf(&quot;Left Tree Node &quot;)
+		printTree(t.LNode)
+		fmt.Printf(&quot;Right Tree Node &quot;)
+		printTree(t.RNode)
+	} else {
+		fmt.Printf(&quot;Nil\n&quot;)
+	}
+}
+</code></pre>
+<p><img src="./images/cost_analysis4.png" alt="Cost Analysis 4" /></p>
+<h4><a class="header" href="#analysis-of-program-3" id="analysis-of-program-3">Analysis of program</a></h4>
+<p>\( T(n) \; = \mathcal{O}(log \; n) \; \rightarrow \; Logarithmic  \)</p>
+<p><em>An algorithms has a logarithmic complexity if the time it takes to process it is proportional to the logarithm of its inputs.</em></p>
+<p><em>The logarithm base is usually in base 2.</em></p>
+<p><em>The tree we used here is a binary tree with a Left Node and a Right Node.</em></p>
+<p><em>The insert method is of \( \mathcal{O}(log \; n) \) where n i sthe number of nodes.</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="big-o-notation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="the-halting-problem.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="big-o-notation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="the-halting-problem.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
