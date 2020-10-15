@@ -12,3 +12,10 @@ workshop-book:
 
 workshop-github:
 	open 'https://github.com/jbelmont/algorithms-workshop'
+
+ifndef GO111MODULE
+GO111MODULE = on
+endif
+
+ci-test:
+	go test ./...

@@ -11,7 +11,7 @@ func TestTable(t *testing.T) {
 		"ID", "Name", "Description",
 	}
 
-	rows := make([]Row, 2)
+	rows := make([]Row, 2, 4)
 	rows[0] = Row{}
 
 	threeColumn := make([]Column, 3)

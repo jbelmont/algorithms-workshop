@@ -22,7 +22,6 @@ func TestQueueOperations(t *testing.T) {
 		Value: 4,
 		Name:  "Coke",
 	})
-
 	if queue.Dequeue().Name != "Pizza" {
 		t.Error("First item in queue should be Pizza")
 	}
