@@ -2,6 +2,8 @@
 
 A workshop on Data Structures and Algorithms
 
+[![Algorithms Workshop](https://circleci.com/gh/jbelmont/algorithms-workshop.svg?style=svg)](https://circleci.com/gh/jbelmont/algorithms-workshop)
+
 ## Sections
 
 * [Definition of Algorithm](#definition-of-algorithms)
